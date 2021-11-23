@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IzC-Zk-7tf">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Cat Facts View Controller-->
+        <scene sceneID="icx-B9-XTX">
+            <objects>
+                <tableViewController id="dI8-lj-LHp" customClass="CatFactsViewController" customModule="TheCats" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="150" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="xZv-dy-mc0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CatFactsTableViewCell" rowHeight="100" id="FQB-wp-wsm" customClass="CatFactsTableViewCell" customModule="TheCats" customModuleProvider="target">
+                                <rect key="frame" x="20" y="49.5" width="374" height="100"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FQB-wp-wsm" id="smn-il-27h">
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MuB-Fp-38C">
+                                            <rect key="frame" x="166" y="10" width="42" height="38.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gax-kl-Tti">
+                                            <rect key="frame" x="35" y="53.5" width="304" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Gax-kl-Tti" firstAttribute="top" secondItem="MuB-Fp-38C" secondAttribute="bottom" constant="5" id="3DT-b6-aOR"/>
+                                        <constraint firstItem="MuB-Fp-38C" firstAttribute="centerX" secondItem="smn-il-27h" secondAttribute="centerX" id="9ht-P5-NCZ"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Gax-kl-Tti" secondAttribute="trailing" constant="15" id="Gcj-uw-dDJ"/>
+                                        <constraint firstItem="Gax-kl-Tti" firstAttribute="leading" secondItem="smn-il-27h" secondAttribute="leadingMargin" constant="15" id="Xxr-U6-QSa"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Gax-kl-Tti" secondAttribute="bottom" constant="15" id="fK3-jN-d3j"/>
+                                        <constraint firstItem="MuB-Fp-38C" firstAttribute="top" secondItem="smn-il-27h" secondAttribute="top" constant="10" id="fLR-m9-59K"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="contentLabel" destination="Gax-kl-Tti" id="roP-pw-onW"/>
+                                    <outlet property="prefixLabel" destination="MuB-Fp-38C" id="CrK-cJ-Az0"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="dI8-lj-LHp" id="0py-GW-pJy"/>
+                            <outlet property="delegate" destination="dI8-lj-LHp" id="Exz-ca-SOs"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Nxb-gd-riJ"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O1J-di-zBj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="763.768115942029" y="35.491071428571423"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="eOk-4T-jma">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IzC-Zk-7tf" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="A4k-Ck-7hy">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="dI8-lj-LHp" kind="relationship" relationship="rootViewController" id="UwU-I4-88o"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ihD-HU-4NX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-146.37681159420291" y="35.491071428571423"/>
+        </scene>
+    </scenes>
+</document>
