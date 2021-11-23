@@ -16,9 +16,11 @@
 		7587068D274BE897000459E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7587068C274BE897000459E7 /* Assets.xcassets */; };
 		75870690274BE897000459E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7587068E274BE897000459E7 /* LaunchScreen.storyboard */; };
 		7587069E274C3C52000459E7 /* CatFacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7587069D274C3C52000459E7 /* CatFacts.swift */; };
+		B5DAD8360707AAA7FC90C384 /* Pods_TheCats.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76EB5AAA765D16247D42A172 /* Pods_TheCats.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3970F252351BCD07B108D454 /* Pods-TheCats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheCats.release.xcconfig"; path = "Target Support Files/Pods-TheCats/Pods-TheCats.release.xcconfig"; sourceTree = "<group>"; };
 		75743CF1274D6F1700EC46CE /* CatFactsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatFactsTableViewCell.swift; sourceTree = "<group>"; };
 		757B4643274D9220003F7024 /* CatFactsAPIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatFactsAPIController.swift; sourceTree = "<group>"; };
 		75870680274BE895000459E7 /* TheCats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheCats.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -30,6 +32,8 @@
 		7587068F274BE897000459E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		75870691274BE897000459E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7587069D274C3C52000459E7 /* CatFacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatFacts.swift; sourceTree = "<group>"; };
+		76EB5AAA765D16247D42A172 /* Pods_TheCats.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheCats.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6985EA56F3C2AD0625CC61D /* Pods-TheCats.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheCats.debug.xcconfig"; path = "Target Support Files/Pods-TheCats/Pods-TheCats.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,17 +41,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5DAD8360707AAA7FC90C384 /* Pods_TheCats.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03F75D79F2E3FAB686A4E699 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F6985EA56F3C2AD0625CC61D /* Pods-TheCats.debug.xcconfig */,
+				3970F252351BCD07B108D454 /* Pods-TheCats.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		642DDBD03624B233AA0369D5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				76EB5AAA765D16247D42A172 /* Pods_TheCats.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		75870677274BE895000459E7 = {
 			isa = PBXGroup;
 			children = (
 				75870682274BE895000459E7 /* TheCats */,
 				75870681274BE895000459E7 /* Products */,
+				03F75D79F2E3FAB686A4E699 /* Pods */,
+				642DDBD03624B233AA0369D5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -115,6 +139,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 75870694274BE897000459E7 /* Build configuration list for PBXNativeTarget "TheCats" */;
 			buildPhases = (
+				3EE24C9EAE32F48F8B92397D /* [CP] Check Pods Manifest.lock */,
+				75BFF652274DB36900F46BB7 /* Run SwiftLint */,
 				7587067C274BE895000459E7 /* Sources */,
 				7587067D274BE895000459E7 /* Frameworks */,
 				7587067E274BE895000459E7 /* Resources */,
@@ -173,6 +199,49 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3EE24C9EAE32F48F8B92397D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TheCats-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		75BFF652274DB36900F46BB7 /* Run SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftLint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7587067C274BE895000459E7 /* Sources */ = {
@@ -328,6 +397,7 @@
 		};
 		75870695274BE897000459E7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F6985EA56F3C2AD0625CC61D /* Pods-TheCats.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -357,6 +427,7 @@
 		};
 		75870696274BE897000459E7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3970F252351BCD07B108D454 /* Pods-TheCats.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

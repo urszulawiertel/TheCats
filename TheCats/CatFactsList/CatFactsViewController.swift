@@ -49,4 +49,3 @@ class CatFactsViewController: UITableViewController {
         return cell
     }
 }
-
