@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		756AE37B274EC3D300BF9F34 /* CatFactsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756AE37A274EC3D300BF9F34 /* CatFactsError.swift */; };
 		75743CF2274D6F1700EC46CE /* CatFactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75743CF1274D6F1700EC46CE /* CatFactsTableViewCell.swift */; };
 		757B4644274D9220003F7024 /* CatFactsAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757B4643274D9220003F7024 /* CatFactsAPIController.swift */; };
 		75870684274BE895000459E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75870683274BE895000459E7 /* AppDelegate.swift */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		3970F252351BCD07B108D454 /* Pods-TheCats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheCats.release.xcconfig"; path = "Target Support Files/Pods-TheCats/Pods-TheCats.release.xcconfig"; sourceTree = "<group>"; };
+		756AE37A274EC3D300BF9F34 /* CatFactsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatFactsError.swift; sourceTree = "<group>"; };
 		75743CF1274D6F1700EC46CE /* CatFactsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatFactsTableViewCell.swift; sourceTree = "<group>"; };
 		757B4643274D9220003F7024 /* CatFactsAPIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatFactsAPIController.swift; sourceTree = "<group>"; };
 		75870680274BE895000459E7 /* TheCats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheCats.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				757B4643274D9220003F7024 /* CatFactsAPIController.swift */,
+				756AE37A274EC3D300BF9F34 /* CatFactsError.swift */,
 			);
 			path = APIService;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				756AE37B274EC3D300BF9F34 /* CatFactsError.swift in Sources */,
 				75870688274BE895000459E7 /* CatFactsViewController.swift in Sources */,
 				7587069E274C3C52000459E7 /* CatFacts.swift in Sources */,
 				757B4644274D9220003F7024 /* CatFactsAPIController.swift in Sources */,

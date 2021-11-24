@@ -9,7 +9,7 @@ import UIKit
 
 class CatFactsViewController: UITableViewController {
     private var catFacts: [CatFacts] = []
-    private let apiController = CatFactsAPIController()
+    private let apiController: CatFactsAPIControlling = CatFactsAPIController()
     private let searchController = UISearchController(searchResultsController: nil)
 
     override func viewDidLoad() {
@@ -18,7 +18,6 @@ class CatFactsViewController: UITableViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Download", style: .plain, target: self, action: #selector(downloadFacts))
 
         downloadFacts()
-        // Do any additional setup after loading the view.
     }
 
     @objc func downloadFacts() {
@@ -30,7 +29,9 @@ class CatFactsViewController: UITableViewController {
                     self.tableView.reloadData()
                 }
             case .failure(let error):
-                print(error)
+                DispatchQueue.main.async {
+                    self.addAlertController(message: error.errorMessage)
+                }
             }
         }
     }
@@ -47,5 +48,11 @@ class CatFactsViewController: UITableViewController {
 
         cell.setupCell(for: item, at: indexPath.row)
         return cell
+    }
+
+    private func addAlertController(message: String) {
+        let alertController = UIAlertController(title: "Something went wrong!", message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alertController, animated: true)
     }
 }
