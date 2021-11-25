@@ -21,7 +21,9 @@ class CatFactsViewController: UITableViewController {
     }
 
     @objc func downloadFacts() {
-        apiController.fetchFacts { result in
+        apiController.fetchFacts { [weak self] result in
+            guard let self = self else { return }
+
             switch result {
             case .success(let catFacts):
                 self.catFacts = catFacts
