@@ -56,8 +56,8 @@ class CatFactsViewController: UITableViewController {
             fatalError("Unable to dequeue Table View Cells")
         }
         let item = catFacts[indexPath.row]
-
-        cell.setupCell(for: item, at: indexPath.row)
+        let factNumber = indexPath.row + 1
+        cell.configureCell(for: item, at: factNumber)
         return cell
     }
 

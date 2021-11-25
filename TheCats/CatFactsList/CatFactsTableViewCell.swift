@@ -8,11 +8,11 @@
 import UIKit
 
 class CatFactsTableViewCell: UITableViewCell {
-    @IBOutlet weak var prefixLabel: UILabel!
-    @IBOutlet weak var contentLabel: UILabel!
+    @IBOutlet private weak var prefixLabel: UILabel!
+    @IBOutlet private weak var contentLabel: UILabel!
 
-    func setupCell(for row: CatFacts?, at index: Int) {
-        prefixLabel.text = "Fact \(index + 1):"
-        contentLabel.text = row?.text
+    func configureCell(for model: CatFacts?, at number: Int) {
+        prefixLabel.text = "Fact #\(number):"
+        contentLabel.text = model?.text
     }
 }
