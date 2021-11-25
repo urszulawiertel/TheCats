@@ -10,6 +10,7 @@ import UIKit
 class CatFactsViewController: UITableViewController {
     private var catFacts: [CatFacts] = []
     private let apiController: CatFactsAPIControlling = CatFactsAPIController()
+    private let activityIndicator = UIActivityIndicatorView()
     private let searchController = UISearchController(searchResultsController: nil)
 
     override func viewDidLoad() {
@@ -17,10 +18,15 @@ class CatFactsViewController: UITableViewController {
         title = "Cats Facts"
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Download", style: .plain, target: self, action: #selector(downloadFacts))
 
-        downloadFacts()
+        activityIndicator.style = .large
+        activityIndicator.center = view.center
+        activityIndicator.hidesWhenStopped = true
+        view.addSubview(activityIndicator)
     }
 
     @objc func downloadFacts() {
+        activityIndicator.startAnimating()
+
         apiController.fetchFacts { [weak self] result in
             guard let self = self else { return }
 
@@ -34,6 +40,9 @@ class CatFactsViewController: UITableViewController {
                 DispatchQueue.main.async {
                     self.addAlertController(message: error.errorMessage)
                 }
+            }
+            DispatchQueue.main.async {
+                self.activityIndicator.stopAnimating()
             }
         }
     }
