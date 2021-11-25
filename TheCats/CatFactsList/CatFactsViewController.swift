@@ -15,7 +15,7 @@ class CatFactsViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Cats Facts"
+        navigationItem.title = "Cats Facts"
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Download", style: .plain, target: self, action: #selector(downloadFacts))
 
         activityIndicator.style = .large
