@@ -21,6 +21,19 @@ class SettingsViewController: UIViewController {
         case dog
         case horse
         case snail
+
+        var animalEmoji: String {
+            switch self {
+            case .cat:
+                return "🐈‍⬛"
+            case .dog:
+                return "🐕"
+            case .horse:
+                return "🐎"
+            case .snail:
+                return "🐌"
+            }
+        }
     }
 
     private var factsNumberPickerView = UIPickerView()
@@ -74,7 +87,7 @@ extension SettingsViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         case 1:
             return "\(factsNumber[row])"
         case 2:
-            return "\(AnimalType.allCases[row])"
+            return "\(AnimalType.allCases[row].animalEmoji)"
         default:
             return ""
         }
