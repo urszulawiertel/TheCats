@@ -26,6 +26,8 @@ class AnimalFactsTableViewController: UITableViewController {
     }
 
     @objc func downloadFacts() {
+        animalFacts = []
+        tableView.reloadData()
         activityIndicator.startAnimating()
 
         apiController.fetchFacts { [weak self] result in
