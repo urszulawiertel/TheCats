@@ -1,5 +1,5 @@
 //
-//  CatFactsError.swift
+//  AnimalFactsError.swift
 //  TheCats
 //
 //  Created by Ula on 24/11/2021.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum CatFactsError: Error {
+enum AnimalFactsError: Error {
     case serverResponse(HTTPURLResponse)
     case urlSession(Error)
     case unknown

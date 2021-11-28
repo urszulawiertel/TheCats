@@ -13,12 +13,12 @@
         <!--Home-->
         <scene sceneID="icx-B9-XTX">
             <objects>
-                <tableViewController title="Home" id="dI8-lj-LHp" customClass="CatFactsViewController" customModule="TheCats" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Home" id="dI8-lj-LHp" customClass="AnimalFactsTableViewController" customModule="TheCats" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="150" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="xZv-dy-mc0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CatFactsTableViewCell" rowHeight="100" id="FQB-wp-wsm" customClass="CatFactsTableViewCell" customModule="TheCats" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AnimalFactsTableViewCell" rowHeight="100" id="FQB-wp-wsm" customClass="AnimalFactsTableViewCell" customModule="TheCats" customModuleProvider="target">
                                 <rect key="frame" x="20" y="49.5" width="374" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FQB-wp-wsm" id="smn-il-27h">

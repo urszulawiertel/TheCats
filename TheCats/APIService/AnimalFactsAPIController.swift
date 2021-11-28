@@ -1,5 +1,5 @@
 //
-//  CatFactsAPIController.swift
+//  AnimalFactsAPIController.swift
 //  TheCats
 //
 //  Created by Ula on 22/11/2021.
@@ -7,15 +7,15 @@
 
 import Foundation
 
-protocol CatFactsAPIControlling {
-    func fetchFacts(completionHandler: @escaping (Result<[CatFacts], CatFactsError>) -> Void)
+protocol AnimalFactsAPIControlling {
+    func fetchFacts(completionHandler: @escaping (Result<[AnimalFact], AnimalFactsError>) -> Void)
 }
 
-struct CatFactsAPIController: CatFactsAPIControlling {
+struct AnimalFactsAPIController: AnimalFactsAPIControlling {
 
     private let baseUrl = "https://cat-fact.herokuapp.com/facts/random?animal_type=cat&amount=10"
 
-    private func fetchData(for url: URL, completionHandler: @escaping (Result<[CatFacts], CatFactsError>) -> Void) {
+    private func fetchData(for url: URL, completionHandler: @escaping (Result<[AnimalFact], AnimalFactsError>) -> Void) {
 
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             if let error = error {
@@ -31,7 +31,7 @@ struct CatFactsAPIController: CatFactsAPIControlling {
             }
 
             do {
-                let decoded = try JSONDecoder().decode([CatFacts].self, from: data)
+                let decoded = try JSONDecoder().decode([AnimalFact].self, from: data)
                 completionHandler(.success(decoded))
             } catch {
                 completionHandler(.failure(.decodingError))
@@ -40,7 +40,7 @@ struct CatFactsAPIController: CatFactsAPIControlling {
         task.resume()
     }
 
-    func fetchFacts(completionHandler: @escaping (Result<[CatFacts], CatFactsError>) -> Void) {
+    func fetchFacts(completionHandler: @escaping (Result<[AnimalFact], AnimalFactsError>) -> Void) {
         guard let url = URL(string: baseUrl) else { return }
 
         fetchData(for: url, completionHandler: completionHandler)

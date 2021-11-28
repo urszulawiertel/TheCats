@@ -7,35 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		756AE37B274EC3D300BF9F34 /* CatFactsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756AE37A274EC3D300BF9F34 /* CatFactsError.swift */; };
-		75743CF2274D6F1700EC46CE /* CatFactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75743CF1274D6F1700EC46CE /* CatFactsTableViewCell.swift */; };
-		757B4644274D9220003F7024 /* CatFactsAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757B4643274D9220003F7024 /* CatFactsAPIController.swift */; };
-		757C536127514C1C00091A6A /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757C536027514C1C00091A6A /* SettingViewController.swift */; };
+		756AE37B274EC3D300BF9F34 /* AnimalFactsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756AE37A274EC3D300BF9F34 /* AnimalFactsError.swift */; };
+		75743CF2274D6F1700EC46CE /* AnimalFactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75743CF1274D6F1700EC46CE /* AnimalFactsTableViewCell.swift */; };
+		757B4644274D9220003F7024 /* AnimalFactsAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757B4643274D9220003F7024 /* AnimalFactsAPIController.swift */; };
+		757C536127514C1C00091A6A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757C536027514C1C00091A6A /* SettingsViewController.swift */; };
 		75870684274BE895000459E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75870683274BE895000459E7 /* AppDelegate.swift */; };
 		75870686274BE895000459E7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75870685274BE895000459E7 /* SceneDelegate.swift */; };
-		75870688274BE895000459E7 /* CatFactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75870687274BE895000459E7 /* CatFactsViewController.swift */; };
+		75870688274BE895000459E7 /* AnimalFactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75870687274BE895000459E7 /* AnimalFactsTableViewController.swift */; };
 		7587068B274BE895000459E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75870689274BE895000459E7 /* Main.storyboard */; };
 		7587068D274BE897000459E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7587068C274BE897000459E7 /* Assets.xcassets */; };
 		75870690274BE897000459E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7587068E274BE897000459E7 /* LaunchScreen.storyboard */; };
-		7587069E274C3C52000459E7 /* CatFacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7587069D274C3C52000459E7 /* CatFacts.swift */; };
+		7587069E274C3C52000459E7 /* AnimalFact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7587069D274C3C52000459E7 /* AnimalFact.swift */; };
 		B5DAD8360707AAA7FC90C384 /* Pods_TheCats.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76EB5AAA765D16247D42A172 /* Pods_TheCats.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3970F252351BCD07B108D454 /* Pods-TheCats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheCats.release.xcconfig"; path = "Target Support Files/Pods-TheCats/Pods-TheCats.release.xcconfig"; sourceTree = "<group>"; };
-		756AE37A274EC3D300BF9F34 /* CatFactsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatFactsError.swift; sourceTree = "<group>"; };
-		75743CF1274D6F1700EC46CE /* CatFactsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatFactsTableViewCell.swift; sourceTree = "<group>"; };
-		757B4643274D9220003F7024 /* CatFactsAPIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatFactsAPIController.swift; sourceTree = "<group>"; };
-		757C536027514C1C00091A6A /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		756AE37A274EC3D300BF9F34 /* AnimalFactsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalFactsError.swift; sourceTree = "<group>"; };
+		75743CF1274D6F1700EC46CE /* AnimalFactsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalFactsTableViewCell.swift; sourceTree = "<group>"; };
+		757B4643274D9220003F7024 /* AnimalFactsAPIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalFactsAPIController.swift; sourceTree = "<group>"; };
+		757C536027514C1C00091A6A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		75870680274BE895000459E7 /* TheCats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheCats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75870683274BE895000459E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75870685274BE895000459E7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		75870687274BE895000459E7 /* CatFactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatFactsViewController.swift; sourceTree = "<group>"; };
+		75870687274BE895000459E7 /* AnimalFactsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalFactsTableViewController.swift; sourceTree = "<group>"; };
 		7587068A274BE895000459E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7587068C274BE897000459E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7587068F274BE897000459E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		75870691274BE897000459E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7587069D274C3C52000459E7 /* CatFacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatFacts.swift; sourceTree = "<group>"; };
+		7587069D274C3C52000459E7 /* AnimalFact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalFact.swift; sourceTree = "<group>"; };
 		76EB5AAA765D16247D42A172 /* Pods_TheCats.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheCats.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6985EA56F3C2AD0625CC61D /* Pods-TheCats.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheCats.debug.xcconfig"; path = "Target Support Files/Pods-TheCats/Pods-TheCats.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,6 +69,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7585853E275294A700EA4656 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				757C536027514C1C00091A6A /* SettingsViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		75870677274BE895000459E7 = {
 			isa = PBXGroup;
 			children = (
@@ -90,7 +98,8 @@
 		75870682274BE895000459E7 /* TheCats */ = {
 			isa = PBXGroup;
 			children = (
-				758706A0274C3F83000459E7 /* CatFactsList */,
+				758706A0274C3F83000459E7 /* AnimalFacts */,
+				7585853E275294A700EA4656 /* Settings */,
 				75870698274C2FD4000459E7 /* APIService */,
 				75870697274C0CA8000459E7 /* Models */,
 				75870683274BE895000459E7 /* AppDelegate.swift */,
@@ -106,7 +115,7 @@
 		75870697274C0CA8000459E7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				7587069D274C3C52000459E7 /* CatFacts.swift */,
+				7587069D274C3C52000459E7 /* AnimalFact.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -114,8 +123,8 @@
 		75870698274C2FD4000459E7 /* APIService */ = {
 			isa = PBXGroup;
 			children = (
-				757B4643274D9220003F7024 /* CatFactsAPIController.swift */,
-				756AE37A274EC3D300BF9F34 /* CatFactsError.swift */,
+				757B4643274D9220003F7024 /* AnimalFactsAPIController.swift */,
+				756AE37A274EC3D300BF9F34 /* AnimalFactsError.swift */,
 			);
 			path = APIService;
 			sourceTree = "<group>";
@@ -128,14 +137,13 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		758706A0274C3F83000459E7 /* CatFactsList */ = {
+		758706A0274C3F83000459E7 /* AnimalFacts */ = {
 			isa = PBXGroup;
 			children = (
-				75870687274BE895000459E7 /* CatFactsViewController.swift */,
-				75743CF1274D6F1700EC46CE /* CatFactsTableViewCell.swift */,
-				757C536027514C1C00091A6A /* SettingViewController.swift */,
+				75870687274BE895000459E7 /* AnimalFactsTableViewController.swift */,
+				75743CF1274D6F1700EC46CE /* AnimalFactsTableViewCell.swift */,
 			);
-			path = CatFactsList;
+			path = AnimalFacts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,12 +262,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				756AE37B274EC3D300BF9F34 /* CatFactsError.swift in Sources */,
-				75870688274BE895000459E7 /* CatFactsViewController.swift in Sources */,
-				7587069E274C3C52000459E7 /* CatFacts.swift in Sources */,
-				757C536127514C1C00091A6A /* SettingViewController.swift in Sources */,
-				757B4644274D9220003F7024 /* CatFactsAPIController.swift in Sources */,
-				75743CF2274D6F1700EC46CE /* CatFactsTableViewCell.swift in Sources */,
+				756AE37B274EC3D300BF9F34 /* AnimalFactsError.swift in Sources */,
+				75870688274BE895000459E7 /* AnimalFactsTableViewController.swift in Sources */,
+				7587069E274C3C52000459E7 /* AnimalFact.swift in Sources */,
+				757C536127514C1C00091A6A /* SettingsViewController.swift in Sources */,
+				757B4644274D9220003F7024 /* AnimalFactsAPIController.swift in Sources */,
+				75743CF2274D6F1700EC46CE /* AnimalFactsTableViewCell.swift in Sources */,
 				75870684274BE895000459E7 /* AppDelegate.swift in Sources */,
 				75870686274BE895000459E7 /* SceneDelegate.swift in Sources */,
 			);

@@ -7,16 +7,16 @@
 
 import UIKit
 
-class CatFactsViewController: UITableViewController {
-    private var catFacts: [CatFacts] = []
-    private let apiController: CatFactsAPIControlling = CatFactsAPIController()
+class AnimalFactsTableViewController: UITableViewController {
+    private var animalFacts: [AnimalFact] = []
+    private let apiController: AnimalFactsAPIControlling = AnimalFactsAPIController()
     private let activityIndicator = UIActivityIndicatorView()
     private let searchController = UISearchController(searchResultsController: nil)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.title = "Cats Facts"
+        navigationItem.title = "Animal Facts"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Download", style: .plain, target: self, action: #selector(downloadFacts))
 
         activityIndicator.style = .large
@@ -32,8 +32,8 @@ class CatFactsViewController: UITableViewController {
             guard let self = self else { return }
 
             switch result {
-            case .success(let catFacts):
-                self.catFacts = catFacts
+            case .success(let animalFacts):
+                self.animalFacts = animalFacts
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
@@ -49,14 +49,14 @@ class CatFactsViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return catFacts.count
+        return animalFacts.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CatFactsTableViewCell", for: indexPath) as? CatFactsTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "AnimalFactsTableViewCell", for: indexPath) as? AnimalFactsTableViewCell else {
             fatalError("Unable to dequeue Table View Cells")
         }
-        let item = catFacts[indexPath.row]
+        let item = animalFacts[indexPath.row]
         let factNumber = indexPath.row + 1
         cell.configureCell(for: item, at: factNumber)
         return cell
