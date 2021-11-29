@@ -99,7 +99,6 @@
 		75870682274BE895000459E7 /* TheCats */ = {
 			isa = PBXGroup;
 			children = (
-				756D1D68275542EB003214DE /* TheCats.entitlements */,
 				758706A0274C3F83000459E7 /* AnimalFacts */,
 				7585853E275294A700EA4656 /* Settings */,
 				75870698274C2FD4000459E7 /* APIService */,
@@ -134,6 +133,7 @@
 		7587069F274C3C81000459E7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				756D1D68275542EB003214DE /* TheCats.entitlements */,
 				7587068C274BE897000459E7 /* Assets.xcassets */,
 			);
 			path = Resources;
