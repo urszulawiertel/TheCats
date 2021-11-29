@@ -15,8 +15,15 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var doneButton: UIButton!
 
     private let factsNumber: [Int] = Array(1...10)
+    private let userDefaults = UserDefaults(suiteName: "group.com.TheCats.app")
+    private let animalTypes = AnimalType.allCases
 
-    enum AnimalType: CaseIterable {
+    private enum Keys: String {
+        case factsKey = "factsNumber"
+        case animalKey = "animalType"
+    }
+
+    private enum AnimalType: CaseIterable {
         case cat
         case dog
         case horse
@@ -57,6 +64,9 @@ class SettingsViewController: UIViewController {
 
         factsNumberPickerView.tag = 1
         animalTypePickerView.tag = 2
+
+        factsNumberTextField.text = userDefaults?.string(forKey: Keys.factsKey.rawValue)
+        animalTypeTextField.text = userDefaults?.string(forKey: Keys.animalKey.rawValue)
     }
 
     @IBAction func doneButtonTapped(_ sender: UIButton) {
@@ -75,7 +85,7 @@ extension SettingsViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         case 1:
             return factsNumber.count
         case 2:
-            return AnimalType.allCases.count
+            return animalTypes.count
         default:
             return 1
         }
@@ -87,20 +97,21 @@ extension SettingsViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         case 1:
             return "\(factsNumber[row])"
         case 2:
-            return "\(AnimalType.allCases[row].animalEmoji)"
+            return "\(animalTypes[row].animalEmoji)"
         default:
             return ""
         }
-
     }
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch pickerView.tag {
         case 1:
             factsNumberTextField.text = "\(factsNumber[row])"
+            userDefaults?.set(factsNumberTextField.text, forKey: Keys.factsKey.rawValue)
             factsNumberTextField.resignFirstResponder()
         case 2:
-            animalTypeTextField.text = "\(AnimalType.allCases[row])"
+            animalTypeTextField.text = "\(animalTypes[row])"
+            userDefaults?.set(animalTypeTextField.text, forKey: Keys.animalKey.rawValue)
             animalTypeTextField.resignFirstResponder()
         default:
             return
