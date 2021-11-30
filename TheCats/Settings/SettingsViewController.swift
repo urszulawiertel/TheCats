@@ -8,15 +8,24 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
-    @IBOutlet weak var factsNumberLabel: UILabel!
-    @IBOutlet weak var animalTypeLabel: UILabel!
-    @IBOutlet weak var factsNumberTextField: UITextField!
-    @IBOutlet weak var animalTypeTextField: UITextField!
-    @IBOutlet weak var doneButton: UIButton!
+    // MARK: - Properties
+
+    @IBOutlet private weak var factsNumberLabel: UILabel!
+    @IBOutlet private weak var animalTypeLabel: UILabel!
+    @IBOutlet private weak var factsNumberTextField: UITextField!
+    @IBOutlet private weak var animalTypeTextField: UITextField!
+    @IBOutlet private weak var doneButton: UIButton!
+
+    private var factsNumberPickerView = UIPickerView()
+    private var animalTypePickerView = UIPickerView()
+
+    // MARK: - Constants
 
     private let factsNumber: [Int] = Array(1...10)
     private let userDefaults = UserDefaults(suiteName: "group.com.TheCats.app")
     private let animalTypes = AnimalType.allCases
+
+    // MARK: - Types
 
     private enum Keys: String {
         case factsKey = "factsNumber"
@@ -43,20 +52,20 @@ class SettingsViewController: UIViewController {
         }
     }
 
-    private var factsNumberPickerView = UIPickerView()
-    private var animalTypePickerView = UIPickerView()
+    // MARK: - View Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "Settings"
 
-        factsNumberLabel.text = "Select the number of facts:"
-        animalTypeLabel.text = "Choose the type of animal:"
+        setupTextField()
+        setupPickerView()
+    }
 
-        factsNumberTextField.inputView = factsNumberPickerView
-        animalTypeTextField.inputView = animalTypePickerView
+    // MARK: - Setup
 
+    private func setupPickerView() {
         factsNumberPickerView.dataSource = self
         factsNumberPickerView.delegate = self
         animalTypePickerView.dataSource = self
@@ -64,6 +73,11 @@ class SettingsViewController: UIViewController {
 
         factsNumberPickerView.tag = 1
         animalTypePickerView.tag = 2
+    }
+
+    private func setupTextField() {
+        factsNumberTextField.inputView = factsNumberPickerView
+        animalTypeTextField.inputView = animalTypePickerView
 
         factsNumberTextField.text = userDefaults?.string(forKey: Keys.factsKey.rawValue)
         animalTypeTextField.text = userDefaults?.string(forKey: Keys.animalKey.rawValue)
@@ -77,6 +91,8 @@ class SettingsViewController: UIViewController {
         }
     }
 }
+
+// MARK: - UIPickerViewDelegate
 
 extension SettingsViewController: UIPickerViewDataSource, UIPickerViewDelegate {
 
