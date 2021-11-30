@@ -8,14 +8,24 @@
 import Foundation
 
 protocol AnimalFactsAPIControlling {
-    func fetchFacts(completionHandler: @escaping (Result<[AnimalFact], AnimalFactsError>) -> Void)
+    func fetchFacts(forType type: String, forNumber number: Int, completionHandler: @escaping (Result<[AnimalFact], AnimalFactsError>) -> Void)
 }
 
 struct AnimalFactsAPIController: AnimalFactsAPIControlling {
 
-    private let baseUrl = "https://cat-fact.herokuapp.com/facts/random?animal_type=cat&amount=10"
+    private let baseUrl = "https://cat-fact.herokuapp.com/"
 
-    private func fetchData(for url: URL, completionHandler: @escaping (Result<[AnimalFact], AnimalFactsError>) -> Void) {
+    func fetchFacts(forType type: String, forNumber number: Int, completionHandler: @escaping (Result<[AnimalFact], AnimalFactsError>) -> Void) {
+        var amount = number
+        if number == 1 {
+            amount = 2
+        }
+        guard let url = URL(string: "\(baseUrl)facts/random?animal_type=\(type)&amount=\(amount)") else { return }
+
+        fetchData(withUrl: url, forNumber: number, completionHandler: completionHandler)
+    }
+
+    private func fetchData<T: Decodable>(withUrl url: URL, forNumber factsNumber: Int, completionHandler: @escaping (Result<[T], AnimalFactsError>) -> Void) {
 
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             if let error = error {
@@ -31,7 +41,10 @@ struct AnimalFactsAPIController: AnimalFactsAPIControlling {
             }
 
             do {
-                let decoded = try JSONDecoder().decode([AnimalFact].self, from: data)
+                var decoded = try JSONDecoder().decode([T].self, from: data)
+                if factsNumber == 1 {
+                    decoded.remove(at: 0)
+                }
                 completionHandler(.success(decoded))
             } catch {
                 completionHandler(.failure(.decodingError))
@@ -39,11 +52,4 @@ struct AnimalFactsAPIController: AnimalFactsAPIControlling {
         }
         task.resume()
     }
-
-    func fetchFacts(completionHandler: @escaping (Result<[AnimalFact], AnimalFactsError>) -> Void) {
-        guard let url = URL(string: baseUrl) else { return }
-
-        fetchData(for: url, completionHandler: completionHandler)
-    }
-
 }

@@ -30,7 +30,7 @@ class AnimalFactsTableViewController: UITableViewController {
         tableView.reloadData()
         activityIndicator.startAnimating()
 
-        apiController.fetchFacts { [weak self] result in
+        apiController.fetchFacts(forType: "cat", forNumber: 1) { [weak self] result in
             guard let self = self else { return }
 
             switch result {
