@@ -68,6 +68,14 @@ class SettingsViewController: UIViewController {
         factsNumberTextField.text = userDefaults?.string(forKey: Keys.factsKey.rawValue)
         animalTypeTextField.text = userDefaults?.string(forKey: Keys.animalKey.rawValue)
     }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if factsNumberTextField.isEditing {
+            factsNumberTextField.resignFirstResponder()
+        } else if animalTypeTextField.isEditing {
+            animalTypeTextField.resignFirstResponder()
+        }
+    }
 }
 
 extension SettingsViewController: UIPickerViewDataSource, UIPickerViewDelegate {
@@ -104,11 +112,9 @@ extension SettingsViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         case 1:
             factsNumberTextField.text = "\(factsNumber[row])"
             userDefaults?.set(factsNumberTextField.text, forKey: Keys.factsKey.rawValue)
-            factsNumberTextField.resignFirstResponder()
         case 2:
             animalTypeTextField.text = "\(animalTypes[row])"
             userDefaults?.set(animalTypeTextField.text, forKey: Keys.animalKey.rawValue)
-            animalTypeTextField.resignFirstResponder()
         default:
             return
         }
