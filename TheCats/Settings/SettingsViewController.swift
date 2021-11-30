@@ -68,10 +68,6 @@ class SettingsViewController: UIViewController {
         factsNumberTextField.text = userDefaults?.string(forKey: Keys.factsKey.rawValue)
         animalTypeTextField.text = userDefaults?.string(forKey: Keys.animalKey.rawValue)
     }
-
-    @IBAction func doneButtonTapped(_ sender: UIButton) {
-    }
-
 }
 
 extension SettingsViewController: UIPickerViewDataSource, UIPickerViewDelegate {

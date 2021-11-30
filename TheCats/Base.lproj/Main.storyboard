@@ -200,13 +200,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXy-iq-619">
-                                <rect key="frame" x="178" y="358" width="58.5" height="31"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Done"/>
-                                <connections>
-                                    <action selector="doneButtonTapped:" destination="qPr-3c-SjS" eventType="touchUpInside" id="xbO-st-3uN"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Par-dB-IYM">
                                 <rect key="frame" x="30" y="169" width="354" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -226,20 +219,17 @@
                             <constraint firstItem="I5P-Jc-O33" firstAttribute="top" secondItem="Par-dB-IYM" secondAttribute="bottom" constant="40" id="PFX-4o-6kV"/>
                             <constraint firstItem="1ho-hc-SPy" firstAttribute="top" secondItem="I5P-Jc-O33" secondAttribute="bottom" constant="20" id="Rrh-pf-TRj"/>
                             <constraint firstItem="1ho-hc-SPy" firstAttribute="leading" secondItem="xz1-tn-3sc" secondAttribute="leading" constant="30" id="Uq8-zI-4D8"/>
-                            <constraint firstItem="eXy-iq-619" firstAttribute="top" secondItem="1ho-hc-SPy" secondAttribute="bottom" constant="40" id="Yvr-Pb-815"/>
                             <constraint firstItem="xz1-tn-3sc" firstAttribute="trailing" secondItem="1ho-hc-SPy" secondAttribute="trailing" constant="30" id="Z76-yJ-bOI"/>
                             <constraint firstItem="gLW-AN-iCx" firstAttribute="top" secondItem="xz1-tn-3sc" secondAttribute="top" constant="40" id="emT-8T-vzX"/>
                             <constraint firstItem="Par-dB-IYM" firstAttribute="top" secondItem="gLW-AN-iCx" secondAttribute="bottom" constant="20" id="g0m-B1-t79"/>
                             <constraint firstItem="xz1-tn-3sc" firstAttribute="trailing" secondItem="Par-dB-IYM" secondAttribute="trailing" constant="30" id="sDs-0W-6AN"/>
                             <constraint firstItem="I5P-Jc-O33" firstAttribute="centerX" secondItem="JhG-FS-w2f" secondAttribute="centerX" id="uFM-5N-4j2"/>
-                            <constraint firstItem="eXy-iq-619" firstAttribute="centerX" secondItem="JhG-FS-w2f" secondAttribute="centerX" id="uPk-fd-Uak"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Weg-Rp-EYA"/>
                     <connections>
                         <outlet property="animalTypeLabel" destination="I5P-Jc-O33" id="crc-xF-8Bd"/>
                         <outlet property="animalTypeTextField" destination="1ho-hc-SPy" id="Wvl-om-Lpy"/>
-                        <outlet property="doneButton" destination="eXy-iq-619" id="1lB-47-HGI"/>
                         <outlet property="factsNumberLabel" destination="gLW-AN-iCx" id="Rlr-Lj-PYg"/>
                         <outlet property="factsNumberTextField" destination="Par-dB-IYM" id="W4e-41-ANh"/>
                     </connections>
