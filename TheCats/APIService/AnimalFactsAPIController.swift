@@ -16,11 +16,8 @@ struct AnimalFactsAPIController: AnimalFactsAPIControlling {
     private let baseUrl = "https://cat-fact.herokuapp.com/"
 
     func fetchFacts(forType type: String, forNumber number: Int, completionHandler: @escaping (Result<[AnimalFact], AnimalFactsError>) -> Void) {
-        var amount = number
-        if number == 1 {
-            amount = 2
-        }
-        guard let url = URL(string: "\(baseUrl)facts/random?animal_type=\(type)&amount=\(amount)") else { return }
+
+        guard let url = URL(string: "\(baseUrl)facts/random?animal_type=\(type)&amount=\(number)") else { return }
 
         fetchData(withUrl: url, forNumber: number, completionHandler: completionHandler)
     }
@@ -41,11 +38,14 @@ struct AnimalFactsAPIController: AnimalFactsAPIControlling {
             }
 
             do {
-                var decoded = try JSONDecoder().decode([T].self, from: data)
+                let decoded: [T]
                 if factsNumber == 1 {
-                    decoded.remove(at: 0)
+                    decoded = try [JSONDecoder().decode(T.self, from: data)]
+                } else {
+                    decoded = try JSONDecoder().decode([T].self, from: data)
                 }
                 completionHandler(.success(decoded))
+
             } catch {
                 completionHandler(.failure(.decodingError))
             }
