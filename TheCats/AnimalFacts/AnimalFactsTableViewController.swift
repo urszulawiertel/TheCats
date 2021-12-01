@@ -59,8 +59,8 @@ class AnimalFactsTableViewController: UITableViewController {
             fatalError("Unable to dequeue Table View Cells")
         }
         let item = animalFacts[indexPath.row]
-        let factNumber = indexPath.row + 1
-        cell.configureCell(for: item, at: factNumber)
+        let cellTitle = "Fact #\(indexPath.row + 1):"
+        cell.configureCell(for: item, withTitle: cellTitle)
         return cell
     }
 
