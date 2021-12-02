@@ -10,6 +10,7 @@ import UIKit
 class AnimalFactsTableViewController: UITableViewController {
     private var animalFacts: [AnimalFact] = []
     private let apiController: AnimalFactsAPIControlling = AnimalFactsAPIController()
+    private let defaultsManager: UserDefaultsManaging = UserDefaultsManager()
     private let activityIndicator = UIActivityIndicatorView()
     private let searchController = UISearchController(searchResultsController: nil)
 
@@ -30,7 +31,8 @@ class AnimalFactsTableViewController: UITableViewController {
         tableView.reloadData()
         activityIndicator.startAnimating()
 
-        apiController.fetchFacts(forType: "cat", forNumber: 1) { [weak self] result in
+        apiController.fetchFacts(forType: defaultsManager.getAnimalType(),
+                                 forNumber: Int(defaultsManager.getFactsNumber()) ?? 1) { [weak self] result in
             guard let self = self else { return }
 
             switch result {

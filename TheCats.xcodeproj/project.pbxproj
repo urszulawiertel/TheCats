@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		756AE37B274EC3D300BF9F34 /* AnimalFactsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756AE37A274EC3D300BF9F34 /* AnimalFactsError.swift */; };
 		75743CF2274D6F1700EC46CE /* AnimalFactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75743CF1274D6F1700EC46CE /* AnimalFactsTableViewCell.swift */; };
+		757AAB5E2757DC9200D4E11D /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757AAB5D2757DC9100D4E11D /* UserDefaultsManager.swift */; };
 		757B4644274D9220003F7024 /* AnimalFactsAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757B4643274D9220003F7024 /* AnimalFactsAPIController.swift */; };
 		757C536127514C1C00091A6A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757C536027514C1C00091A6A /* SettingsViewController.swift */; };
 		75870684274BE895000459E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75870683274BE895000459E7 /* AppDelegate.swift */; };
@@ -26,6 +27,7 @@
 		756AE37A274EC3D300BF9F34 /* AnimalFactsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalFactsError.swift; sourceTree = "<group>"; };
 		756D1D68275542EB003214DE /* TheCats.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TheCats.entitlements; sourceTree = "<group>"; };
 		75743CF1274D6F1700EC46CE /* AnimalFactsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalFactsTableViewCell.swift; sourceTree = "<group>"; };
+		757AAB5D2757DC9100D4E11D /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		757B4643274D9220003F7024 /* AnimalFactsAPIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalFactsAPIController.swift; sourceTree = "<group>"; };
 		757C536027514C1C00091A6A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		75870680274BE895000459E7 /* TheCats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheCats.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +72,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		757AAB5C2757D80700D4E11D /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				757AAB5D2757DC9100D4E11D /* UserDefaultsManager.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		7585853E275294A700EA4656 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +115,7 @@
 				75870697274C0CA8000459E7 /* Models */,
 				75870683274BE895000459E7 /* AppDelegate.swift */,
 				75870685274BE895000459E7 /* SceneDelegate.swift */,
+				757AAB5C2757D80700D4E11D /* Utilities */,
 				7587069F274C3C81000459E7 /* Resources */,
 				75870689274BE895000459E7 /* Main.storyboard */,
 				7587068E274BE897000459E7 /* LaunchScreen.storyboard */,
@@ -269,6 +280,7 @@
 				7587069E274C3C52000459E7 /* AnimalFact.swift in Sources */,
 				757C536127514C1C00091A6A /* SettingsViewController.swift in Sources */,
 				757B4644274D9220003F7024 /* AnimalFactsAPIController.swift in Sources */,
+				757AAB5E2757DC9200D4E11D /* UserDefaultsManager.swift in Sources */,
 				75743CF2274D6F1700EC46CE /* AnimalFactsTableViewCell.swift in Sources */,
 				75870684274BE895000459E7 /* AppDelegate.swift in Sources */,
 				75870686274BE895000459E7 /* SceneDelegate.swift in Sources */,

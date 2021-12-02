@@ -21,16 +21,10 @@ class SettingsViewController: UIViewController {
 
     // MARK: - Constants
 
+    private let defaultsManager: UserDefaultsManaging = UserDefaultsManager()
     private let factsNumber: [Int] = Array(1...10)
-    private let userDefaults = UserDefaults(suiteName: "group.com.TheCats.app")
-    private let animalTypes = AnimalType.allCases
 
     // MARK: - Types
-
-    private enum Keys: String {
-        case factsKey = "factsNumber"
-        case animalKey = "animalType"
-    }
 
     private enum AnimalType: CaseIterable {
         case cat
@@ -58,7 +52,6 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "Settings"
-
         setupTextField()
         setupPickerView()
     }
@@ -79,8 +72,8 @@ class SettingsViewController: UIViewController {
         factsNumberTextField.inputView = factsNumberPickerView
         animalTypeTextField.inputView = animalTypePickerView
 
-        factsNumberTextField.text = userDefaults?.string(forKey: Keys.factsKey.rawValue)
-        animalTypeTextField.text = userDefaults?.string(forKey: Keys.animalKey.rawValue)
+        factsNumberTextField.text = defaultsManager.getFactsNumber()
+        animalTypeTextField.text = defaultsManager.getAnimalType().capitalized
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -105,19 +98,18 @@ extension SettingsViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         case 1:
             return factsNumber.count
         case 2:
-            return animalTypes.count
+            return AnimalType.allCases.count
         default:
             return 1
         }
     }
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-
         switch pickerView.tag {
         case 1:
             return "\(factsNumber[row])"
         case 2:
-            return "\(animalTypes[row].animalEmoji)"
+            return "\(AnimalType.allCases[row].animalEmoji)"
         default:
             return ""
         }
@@ -127,10 +119,10 @@ extension SettingsViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         switch pickerView.tag {
         case 1:
             factsNumberTextField.text = "\(factsNumber[row])"
-            userDefaults?.set(factsNumberTextField.text, forKey: Keys.factsKey.rawValue)
+            defaultsManager.setFactsNumber(value: factsNumberTextField.text)
         case 2:
-            animalTypeTextField.text = "\(animalTypes[row])"
-            userDefaults?.set(animalTypeTextField.text, forKey: Keys.animalKey.rawValue)
+            animalTypeTextField.text = "\(AnimalType.allCases[row])".capitalized
+            defaultsManager.setAnimalType(value: "\(AnimalType.allCases[row])")
         default:
             return
         }
