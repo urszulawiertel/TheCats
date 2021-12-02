@@ -26,11 +26,12 @@ class SettingsViewController: UIViewController {
 
     // MARK: - Types
 
-    private enum AnimalType: CaseIterable {
-        case cat
-        case dog
-        case horse
-        case snail
+    private enum AnimalType: String, CaseIterable {
+        case cat = "cat"
+        case dog = "dog"
+        case horse = "horse"
+        case snail = "snail"
+        case unspecified = "cat,dog,horse,snail"
 
         var animalEmoji: String {
             switch self {
@@ -42,6 +43,8 @@ class SettingsViewController: UIViewController {
                 return "🐎"
             case .snail:
                 return "🐌"
+            case .unspecified:
+                return "Unspecified"
             }
         }
     }
@@ -74,6 +77,9 @@ class SettingsViewController: UIViewController {
 
         factsNumberTextField.text = defaultsManager.getFactsNumber()
         animalTypeTextField.text = defaultsManager.getAnimalType().capitalized
+        if animalTypeTextField.text == "Cat,Dog,Horse,Snail" {
+            animalTypeTextField.text = "Unspecified"
+        }
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -122,7 +128,7 @@ extension SettingsViewController: UIPickerViewDataSource, UIPickerViewDelegate {
             defaultsManager.setFactsNumber(value: factsNumberTextField.text)
         case 2:
             animalTypeTextField.text = "\(AnimalType.allCases[row])".capitalized
-            defaultsManager.setAnimalType(value: "\(AnimalType.allCases[row])")
+            defaultsManager.setAnimalType(value: "\(AnimalType.allCases[row].rawValue)")
         default:
             return
         }
