@@ -9,6 +9,7 @@ import UIKit
 
 class AnimalFactsTableViewController: UITableViewController {
     private var animalFacts: [AnimalFact] = []
+    private var animalFactsFiltered = [AnimalFact]()
     private let apiController: AnimalFactsAPIControlling = AnimalFactsAPIController()
     private let defaultsManager: UserDefaultsManaging = UserDefaultsManager()
     private let activityIndicator = UIActivityIndicatorView()
@@ -24,6 +25,10 @@ class AnimalFactsTableViewController: UITableViewController {
         activityIndicator.center = view.center
         activityIndicator.hidesWhenStopped = true
         view.addSubview(activityIndicator)
+
+        navigationItem.searchController = searchController
+        searchController.delegate = self
+        searchController.searchResultsUpdater = self
     }
 
     @objc func downloadFacts() {
@@ -53,15 +58,23 @@ class AnimalFactsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return animalFacts.count
+        return !animalFactsFiltered.isEmpty ? animalFactsFiltered.count : animalFacts.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "AnimalFactsTableViewCell", for: indexPath) as? AnimalFactsTableViewCell else {
             fatalError("Unable to dequeue Table View Cells")
         }
-        let item = animalFacts[indexPath.row]
+
         let cellTitle = "Fact #\(indexPath.row + 1):"
+
+        var item: AnimalFact
+        if !animalFactsFiltered.isEmpty {
+            item = animalFactsFiltered[indexPath.row]
+        } else {
+            item = animalFacts[indexPath.row]
+        }
+
         cell.configureCell(for: item, withTitle: cellTitle)
         return cell
     }
@@ -70,5 +83,23 @@ class AnimalFactsTableViewController: UITableViewController {
         let alertController = UIAlertController(title: "Something went wrong!", message: message, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "OK", style: .default))
         present(alertController, animated: true)
+    }
+}
+
+// MARK: - UISearchControllerDelegate
+
+extension AnimalFactsTableViewController: UISearchControllerDelegate, UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let searchText = searchController.searchBar.text?.trimmingCharacters(in: .whitespaces).lowercased() else {
+            return
+        }
+
+        if searchText.isEmpty {
+            tableView.reloadData()
+        }
+
+        let searchResults = animalFacts.filter { $0.text.lowercased().contains(searchText) }
+        animalFactsFiltered = searchResults
+        tableView.reloadData()
     }
 }
