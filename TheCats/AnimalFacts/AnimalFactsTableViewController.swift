@@ -33,6 +33,7 @@ class AnimalFactsTableViewController: UITableViewController {
 
     @objc func downloadFacts() {
         animalFacts = []
+        animalFactsFiltered = []
         tableView.reloadData()
         activityIndicator.startAnimating()
 
@@ -58,7 +59,10 @@ class AnimalFactsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return !animalFactsFiltered.isEmpty ? animalFactsFiltered.count : animalFacts.count
+        if !animalFactsFiltered.isEmpty {
+            return animalFactsFiltered.count
+        }
+        return searchController.isActive ? 0 : animalFacts.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -95,11 +99,11 @@ extension AnimalFactsTableViewController: UISearchControllerDelegate, UISearchRe
         }
 
         if searchText.isEmpty {
-            tableView.reloadData()
+            animalFactsFiltered = animalFacts
+        } else {
+            let searchResults = animalFacts.filter { $0.text.lowercased().contains(searchText) }
+            animalFactsFiltered = searchResults
         }
-
-        let searchResults = animalFacts.filter { $0.text.lowercased().contains(searchText) }
-        animalFactsFiltered = searchResults
         tableView.reloadData()
     }
 }
