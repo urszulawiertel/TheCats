@@ -43,7 +43,7 @@ class AnimalFactsTableViewController: UITableViewController {
                 }
             case .failure(let error):
                 DispatchQueue.main.async {
-                    self.addAlertController(message: error.errorMessage)
+                    self.showAlertController(message: error.errorMessage)
                 }
             }
             DispatchQueue.main.async {
@@ -66,7 +66,7 @@ class AnimalFactsTableViewController: UITableViewController {
         return cell
     }
 
-    private func addAlertController(message: String) {
+    private func showAlertController(message: String) {
         let alertController = UIAlertController(title: "Something went wrong!", message: message, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "OK", style: .default))
         present(alertController, animated: true)
