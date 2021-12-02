@@ -8,6 +8,12 @@
 import Foundation
 
 struct AnimalFact: Codable {
+    let id: String
+    let status: Status
+    let text: String
+    let type: String
+    let createdAt: String?
+
     enum CodingKeys: String, CodingKey {
         case id = "_id"
         case status
@@ -15,16 +21,12 @@ struct AnimalFact: Codable {
         case type
         case createdAt
     }
-    let id: String
-    let status: Status
-    let text: String
-    let type: String
-    let createdAt: String?
 }
 
 struct Status: Codable {
+    let verified: Bool?
+
     enum CodingKeys: String, CodingKey {
         case verified
     }
-    let verified: Bool?
 }
