@@ -44,6 +44,7 @@ class AnimalFactsTableViewController: UITableViewController {
             switch result {
             case .success(let animalFacts):
                 self.animalFacts = animalFacts
+                animalFacts.enumerated().forEach { self.animalFacts[$0.offset].index = $0.offset + 1 }
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
@@ -70,8 +71,6 @@ class AnimalFactsTableViewController: UITableViewController {
             fatalError("Unable to dequeue Table View Cells")
         }
 
-        let cellTitle = "Fact #\(indexPath.row + 1):"
-
         var item: AnimalFact
         if !animalFactsFiltered.isEmpty {
             item = animalFactsFiltered[indexPath.row]
@@ -79,7 +78,8 @@ class AnimalFactsTableViewController: UITableViewController {
             item = animalFacts[indexPath.row]
         }
 
-        cell.configureCell(for: item, withTitle: cellTitle)
+        cell.selectionStyle = .none
+        cell.configureCell(for: item)
         return cell
     }
 

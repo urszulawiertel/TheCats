@@ -11,8 +11,8 @@ class AnimalFactsTableViewCell: UITableViewCell {
     @IBOutlet private weak var prefixLabel: UILabel!
     @IBOutlet private weak var contentLabel: UILabel!
 
-    func configureCell(for model: AnimalFact?, withTitle factTitle: String) {
-        prefixLabel.text = factTitle
+    func configureCell(for model: AnimalFact?) {
+        prefixLabel.text = "Fact #\(model?.index ?? 1):"
         contentLabel.text = model?.text
     }
 }
