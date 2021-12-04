@@ -28,8 +28,4 @@ struct AnimalFact: Codable {
 
 struct Status: Codable {
     let verified: Bool?
-
-    enum CodingKeys: String, CodingKey {
-        case verified
-    }
 }
