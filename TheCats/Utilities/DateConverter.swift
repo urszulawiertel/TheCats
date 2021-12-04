@@ -9,11 +9,18 @@ import Foundation
 
 protocol DateConverting {
     func formatDate(_ string: String) -> String?
+    func getDate(_ string: String) -> Date?
 }
 
 struct DateConverter: DateConverting {
-    private let inputDateFormatter: DateFormatter
-    private let outputDateFormatter: DateFormatter
+
+    let inputDateFormatter: DateFormatter
+    let outputDateFormatter: DateFormatter
+
+    init(inputDateFormatter: DateFormatter, outputDateFormatter: DateFormatter) {
+        self.inputDateFormatter = inputDateFormatter
+        self.outputDateFormatter = outputDateFormatter
+    }
 
     /// Converts a date from the API using DateFormatter().
     /// - Parameter string: Date to format
@@ -26,9 +33,9 @@ struct DateConverter: DateConverting {
         }
     }
 
-    init(inputDateFormatter: DateFormatter, outputDateFormatter: DateFormatter) {
-        self.inputDateFormatter = inputDateFormatter
-        self.outputDateFormatter = outputDateFormatter
+    /// Converts a string to a Date object
+    func getDate(_ string: String) -> Date? {
+        return inputDateFormatter.date(from: string)
     }
 }
 
@@ -47,5 +54,4 @@ extension DateFormatter {
         dateFormatter.dateFormat = "dd/MM/yyyy"
         return dateFormatter
     }
-
 }

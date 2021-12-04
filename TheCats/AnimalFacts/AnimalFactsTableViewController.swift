@@ -12,8 +12,8 @@ class AnimalFactsTableViewController: UITableViewController {
     private var animalFactsFiltered = [AnimalFact]()
     private let apiController: AnimalFactsAPIControlling = AnimalFactsAPIController()
     private let defaultsManager: UserDefaultsManaging = UserDefaultsManager()
-    private let dateFormatter: DateConverting = DateConverter(inputDateFormatter: .defaultDateFormatter,
-                                                              outputDateFormatter: .dayMonthYearDateFormatter)
+    private let dateFormatter: DateConverter = DateConverter(inputDateFormatter: .defaultDateFormatter,
+                                              outputDateFormatter: .dayMonthYearDateFormatter)
     private let activityIndicator = UIActivityIndicatorView()
     private let searchController = UISearchController(searchResultsController: nil)
 
@@ -21,7 +21,8 @@ class AnimalFactsTableViewController: UITableViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "Animal Facts"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Download", style: .plain, target: self, action: #selector(downloadFacts))
+
+        setupRightBarButtonItems()
 
         activityIndicator.style = .large
         activityIndicator.center = view.center
@@ -33,7 +34,39 @@ class AnimalFactsTableViewController: UITableViewController {
         searchController.searchResultsUpdater = self
     }
 
-    @objc func downloadFacts() {
+    private func setupRightBarButtonItems() {
+        let barButtonMenu = UIMenu(title: "Sort by", options: .displayInline, children: [
+            UIAction(title: "Date", image: UIImage(systemName: "calendar.badge.clock"), handler: sortFacts),
+            UIAction(title: "Type", image: UIImage(systemName: "pencil"), handler: sortFacts),
+            UIAction(title: "Alphabetical", image: UIImage(systemName: "textformat.abc"), handler: sortFacts),
+            UIAction(title: "Verified", image: UIImage(systemName: "checkmark.circle"), handler: sortFacts)
+        ])
+
+        let downloadBarItem = UIBarButtonItem(title: "Download", style: .plain, target: self, action: #selector(downloadFacts))
+        let filterBarItem = UIBarButtonItem(image: UIImage(systemName: "arrow.up.arrow.down"), menu: barButtonMenu)
+        navigationItem.rightBarButtonItems = [filterBarItem, downloadBarItem]
+    }
+
+    private func sortFacts(action: UIAction) {
+        switch action.title {
+        case "Date":
+            let now = Date()
+            animalFactsFiltered = animalFacts.sorted {
+                dateFormatter.getDate($0.createdAt ?? "") ?? now > dateFormatter.getDate($1.createdAt ?? "") ?? now
+            }
+        case "Type":
+            animalFactsFiltered = animalFacts.sorted { $0.type < $1.type }
+        case "Alphabetical":
+            animalFactsFiltered = animalFacts.sorted { $0.text < $1.text }
+        case "Verified":
+            animalFactsFiltered = animalFacts.sorted { $0.status.verified ?? false && !($1.status.verified ?? false) }
+        default:
+            return
+        }
+        tableView.reloadData()
+    }
+
+    @objc private func downloadFacts() {
         animalFacts = []
         animalFactsFiltered = []
         tableView.reloadData()
