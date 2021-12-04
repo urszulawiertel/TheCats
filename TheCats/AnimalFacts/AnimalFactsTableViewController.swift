@@ -12,6 +12,8 @@ class AnimalFactsTableViewController: UITableViewController {
     private var animalFactsFiltered = [AnimalFact]()
     private let apiController: AnimalFactsAPIControlling = AnimalFactsAPIController()
     private let defaultsManager: UserDefaultsManaging = UserDefaultsManager()
+    private let dateFormatter: DateConverting = DateConverter(inputDateFormatter: .defaultDateFormatter,
+                                                              outputDateFormatter: .dayMonthYearDateFormatter)
     private let activityIndicator = UIActivityIndicatorView()
     private let searchController = UISearchController(searchResultsController: nil)
 
@@ -79,7 +81,7 @@ class AnimalFactsTableViewController: UITableViewController {
         }
 
         cell.selectionStyle = .none
-        cell.configureCell(for: item)
+        cell.configureCell(for: item, dateFormatter: dateFormatter)
         return cell
     }
 
