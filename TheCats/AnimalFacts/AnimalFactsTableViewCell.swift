@@ -13,10 +13,10 @@ class AnimalFactsTableViewCell: UITableViewCell {
     @IBOutlet private weak var typeLabel: UILabel!
     @IBOutlet private weak var dateLabel: UILabel!
 
-    func configureCell(for model: AnimalFact?, dateFormatter: DateConverting) {
+    func configureCell(for model: AnimalFact?, dateConverter: DateConverting) {
         prefixLabel.text = "Fact #\(model?.index ?? 1):"
         contentLabel.text = model?.text
         typeLabel.text = model?.type.animalEmoji
-        dateLabel.text = dateFormatter.formatDate(model?.createdAt ?? "")
+        dateLabel.text = dateConverter.formatDate(model?.createdAt ?? "")
     }
 }
