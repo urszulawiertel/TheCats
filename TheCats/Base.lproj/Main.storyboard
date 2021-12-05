@@ -26,62 +26,54 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gax-kl-Tti">
-                                            <rect key="frame" x="15" y="83.5" width="308.5" height="70.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <rect key="frame" x="20" y="81.5" width="334" height="68.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MuB-Fp-38C">
-                                            <rect key="frame" x="15" y="15" width="308.5" height="20.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                            <rect key="frame" x="155" y="30" width="64.5" height="31.5"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
+                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rk9-Vv-FM2" userLabel="Labels Stack View">
-                                            <rect key="frame" x="15" y="50.5" width="308.5" height="18"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d96-7s-F8Q">
-                                                    <rect key="frame" x="0.0" y="0.0" width="273" height="18"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" systemColor="secondaryLabelColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKP-NK-fGp">
-                                                    <rect key="frame" x="273" y="0.0" width="35.5" height="18"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" systemColor="secondaryLabelColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </stackView>
-                                        <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="his-iQ-0Zl" userLabel="Button Stack View">
-                                            <rect key="frame" x="338.5" y="15" width="20.5" height="150"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ViA-kF-pVG">
-                                                    <rect key="frame" x="0.0" y="0.0" width="20.5" height="150"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                    <state key="normal">
-                                                        <imageReference key="image" image="heart" catalog="system" symbolScale="large"/>
-                                                    </state>
-                                                </button>
-                                            </subviews>
-                                        </stackView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d96-7s-F8Q">
+                                            <rect key="frame" x="245.5" y="30" width="61.5" height="31.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                            <color key="textColor" systemColor="secondaryLabelColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKP-NK-fGp">
+                                            <rect key="frame" x="20" y="30" width="33" height="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" systemColor="secondaryLabelColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ViA-kF-pVG">
+                                            <rect key="frame" x="317" y="30" width="37" height="31.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal">
+                                                <imageReference key="image" image="heart" catalog="system"/>
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30" scale="default" weight="medium"/>
+                                            </state>
+                                        </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottomMargin" secondItem="Gax-kl-Tti" secondAttribute="bottom" constant="15" id="0CN-i1-ok4"/>
-                                        <constraint firstAttribute="trailing" secondItem="his-iQ-0Zl" secondAttribute="trailing" constant="15" id="4cb-6I-U9J"/>
-                                        <constraint firstItem="rk9-Vv-FM2" firstAttribute="leading" secondItem="smn-il-27h" secondAttribute="leading" constant="15" id="6J1-UD-TSM"/>
-                                        <constraint firstItem="his-iQ-0Zl" firstAttribute="top" secondItem="smn-il-27h" secondAttribute="top" constant="15" id="7Gf-o3-Rx5"/>
-                                        <constraint firstItem="his-iQ-0Zl" firstAttribute="leading" secondItem="MuB-Fp-38C" secondAttribute="trailing" constant="15" id="97n-5R-0te"/>
-                                        <constraint firstItem="his-iQ-0Zl" firstAttribute="leading" secondItem="Gax-kl-Tti" secondAttribute="trailing" constant="15" id="9m2-PV-ewz"/>
-                                        <constraint firstItem="his-iQ-0Zl" firstAttribute="leading" secondItem="rk9-Vv-FM2" secondAttribute="trailing" constant="15" id="JOV-VK-7my"/>
-                                        <constraint firstItem="rk9-Vv-FM2" firstAttribute="top" secondItem="MuB-Fp-38C" secondAttribute="bottom" constant="15" id="Ks6-iO-VdS"/>
-                                        <constraint firstItem="Gax-kl-Tti" firstAttribute="leading" secondItem="smn-il-27h" secondAttribute="leading" constant="15" id="VD3-lu-AR4"/>
-                                        <constraint firstAttribute="bottom" secondItem="his-iQ-0Zl" secondAttribute="bottom" constant="15" id="Yf5-o4-vPc"/>
-                                        <constraint firstItem="Gax-kl-Tti" firstAttribute="top" secondItem="rk9-Vv-FM2" secondAttribute="bottom" constant="15" id="jWt-E1-4Mu"/>
-                                        <constraint firstItem="MuB-Fp-38C" firstAttribute="top" secondItem="smn-il-27h" secondAttribute="top" constant="15" id="lIH-Dr-F8M"/>
-                                        <constraint firstItem="MuB-Fp-38C" firstAttribute="leading" secondItem="smn-il-27h" secondAttribute="leading" constant="15" id="sTZ-1T-zAe"/>
+                                        <constraint firstItem="Gax-kl-Tti" firstAttribute="top" secondItem="MuB-Fp-38C" secondAttribute="bottom" constant="20" id="6c7-OO-Jql"/>
+                                        <constraint firstItem="d96-7s-F8Q" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="MuB-Fp-38C" secondAttribute="trailing" constant="8" symbolic="YES" id="CAG-Sl-UEG"/>
+                                        <constraint firstItem="MuB-Fp-38C" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="LKP-NK-fGp" secondAttribute="trailing" constant="8" symbolic="YES" id="Dkb-Pc-rfK"/>
+                                        <constraint firstItem="Gax-kl-Tti" firstAttribute="leading" secondItem="smn-il-27h" secondAttribute="leading" constant="20" id="IB0-Rx-klZ"/>
+                                        <constraint firstAttribute="trailing" secondItem="Gax-kl-Tti" secondAttribute="trailing" constant="20" id="Q4p-Qy-WFy"/>
+                                        <constraint firstItem="MuB-Fp-38C" firstAttribute="top" secondItem="smn-il-27h" secondAttribute="top" constant="30" id="TxJ-h9-AIh"/>
+                                        <constraint firstItem="LKP-NK-fGp" firstAttribute="leading" secondItem="smn-il-27h" secondAttribute="leading" constant="20" id="U0y-Re-AeZ"/>
+                                        <constraint firstItem="LKP-NK-fGp" firstAttribute="top" secondItem="smn-il-27h" secondAttribute="top" constant="30" id="Xpo-ke-fj5"/>
+                                        <constraint firstAttribute="bottom" secondItem="Gax-kl-Tti" secondAttribute="bottom" constant="30" id="YKR-uI-P01"/>
+                                        <constraint firstItem="MuB-Fp-38C" firstAttribute="centerX" secondItem="smn-il-27h" secondAttribute="centerX" id="lU2-KK-2WE"/>
+                                        <constraint firstItem="d96-7s-F8Q" firstAttribute="top" secondItem="smn-il-27h" secondAttribute="top" constant="30" id="lYU-YE-R4J"/>
+                                        <constraint firstAttribute="trailing" secondItem="ViA-kF-pVG" secondAttribute="trailing" constant="20" id="o1O-ah-Pec"/>
+                                        <constraint firstItem="ViA-kF-pVG" firstAttribute="top" secondItem="smn-il-27h" secondAttribute="top" constant="30" id="vIX-Tc-oo7"/>
+                                        <constraint firstItem="ViA-kF-pVG" firstAttribute="leading" secondItem="d96-7s-F8Q" secondAttribute="trailing" constant="10" id="yFq-3H-WKo"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">

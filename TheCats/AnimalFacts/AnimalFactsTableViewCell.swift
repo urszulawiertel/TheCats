@@ -17,6 +17,6 @@ class AnimalFactsTableViewCell: UITableViewCell {
         prefixLabel.text = "Fact #\(model?.index ?? 1):"
         contentLabel.text = model?.text
         typeLabel.text = model?.type.animalEmoji
-        dateLabel.text = dateConverter.formatDate(model?.createdAt ?? "")
+        dateLabel.text = "Created at:\n\(dateConverter.formatDate(model?.createdAt ?? "") ?? "")"
     }
 }
