@@ -8,16 +8,32 @@
 import Foundation
 
 protocol AnimalFactsAPIControlling {
-    func fetchFacts(forType type: String, forNumber number: Int, completionHandler: @escaping (Result<[AnimalFact], AnimalFactsError>) -> Void)
+    func fetchFacts(forType type: AnimalType, forNumber number: Int, completionHandler: @escaping (Result<[AnimalFact], AnimalFactsError>) -> Void)
+}
+
+extension AnimalType {
+    /// Retrieves the raw value from AnimalType cases and converts it to a query value
+    /// - Returns: Returns a query string
+    func getQueryValue() -> String {
+        switch self {
+        case .unspecified:
+            var allCases = AnimalType.allCases
+            allCases.removeAll { $0 == .unspecified }
+            let allCasesQueryString = allCases.map { $0.rawValue }.joined(separator: ",")
+            return allCasesQueryString
+        default:
+            return self.rawValue
+        }
+    }
 }
 
 struct AnimalFactsAPIController: AnimalFactsAPIControlling {
 
     private let baseUrl = "https://cat-fact.herokuapp.com/"
 
-    func fetchFacts(forType type: String, forNumber number: Int, completionHandler: @escaping (Result<[AnimalFact], AnimalFactsError>) -> Void) {
+    func fetchFacts(forType type: AnimalType, forNumber number: Int, completionHandler: @escaping (Result<[AnimalFact], AnimalFactsError>) -> Void) {
 
-        guard let url = URL(string: "\(baseUrl)facts/random?animal_type=\(type)&amount=\(number)") else { return }
+        guard let url = URL(string: "\(baseUrl)facts/random?animal_type=\(type.getQueryValue())&amount=\(number)") else { return }
 
         fetchData(withUrl: url, forNumber: number, completionHandler: completionHandler)
     }

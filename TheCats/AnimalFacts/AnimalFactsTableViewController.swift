@@ -55,7 +55,7 @@ class AnimalFactsTableViewController: UITableViewController {
                 dateFormatter.getDate($0.createdAt ?? "") ?? now > dateFormatter.getDate($1.createdAt ?? "") ?? now
             }
         case "Type":
-            animalFactsFiltered = animalFacts.sorted { $0.type < $1.type }
+            animalFactsFiltered = animalFacts.sorted { $0.type.rawValue < $1.type.rawValue }
         case "Alphabetical":
             animalFactsFiltered = animalFacts.sorted { $0.text < $1.text }
         case "Verified":
@@ -72,7 +72,7 @@ class AnimalFactsTableViewController: UITableViewController {
         tableView.reloadData()
         activityIndicator.startAnimating()
 
-        apiController.fetchFacts(forType: defaultsManager.getAnimalType(),
+        apiController.fetchFacts(forType: AnimalType(rawValue: defaultsManager.getAnimalType()) ?? .unspecified,
                                  forNumber: Int(defaultsManager.getFactsNumber()) ?? 1) { [weak self] result in
             guard let self = self else { return }
 

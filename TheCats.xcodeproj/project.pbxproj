@@ -20,8 +20,19 @@
 		7587068D274BE897000459E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7587068C274BE897000459E7 /* Assets.xcassets */; };
 		75870690274BE897000459E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7587068E274BE897000459E7 /* LaunchScreen.storyboard */; };
 		7587069E274C3C52000459E7 /* AnimalFact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7587069D274C3C52000459E7 /* AnimalFact.swift */; };
+		75995FF7275C44400003B8A3 /* TheCatsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75995FF6275C44400003B8A3 /* TheCatsTests.swift */; };
 		B5DAD8360707AAA7FC90C384 /* Pods_TheCats.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76EB5AAA765D16247D42A172 /* Pods_TheCats.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		75995FF8275C44400003B8A3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 75870678274BE895000459E7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7587067F274BE895000459E7;
+			remoteInfo = TheCats;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		3970F252351BCD07B108D454 /* Pods-TheCats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheCats.release.xcconfig"; path = "Target Support Files/Pods-TheCats/Pods-TheCats.release.xcconfig"; sourceTree = "<group>"; };
@@ -41,6 +52,8 @@
 		7587068F274BE897000459E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		75870691274BE897000459E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7587069D274C3C52000459E7 /* AnimalFact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalFact.swift; sourceTree = "<group>"; };
+		75995FF4275C44400003B8A3 /* TheCatsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheCatsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		75995FF6275C44400003B8A3 /* TheCatsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheCatsTests.swift; sourceTree = "<group>"; };
 		76EB5AAA765D16247D42A172 /* Pods_TheCats.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheCats.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6985EA56F3C2AD0625CC61D /* Pods-TheCats.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheCats.debug.xcconfig"; path = "Target Support Files/Pods-TheCats/Pods-TheCats.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -51,6 +64,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5DAD8360707AAA7FC90C384 /* Pods_TheCats.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		75995FF1275C44400003B8A3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				75870682274BE895000459E7 /* TheCats */,
+				75995FF5275C44400003B8A3 /* TheCatsTests */,
 				75870681274BE895000459E7 /* Products */,
 				03F75D79F2E3FAB686A4E699 /* Pods */,
 				642DDBD03624B233AA0369D5 /* Frameworks */,
@@ -105,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				75870680274BE895000459E7 /* TheCats.app */,
+				75995FF4275C44400003B8A3 /* TheCatsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -162,6 +184,14 @@
 			path = AnimalFacts;
 			sourceTree = "<group>";
 		};
+		75995FF5275C44400003B8A3 /* TheCatsTests */ = {
+			isa = PBXGroup;
+			children = (
+				75995FF6275C44400003B8A3 /* TheCatsTests.swift */,
+			);
+			path = TheCatsTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -184,6 +214,24 @@
 			productReference = 75870680274BE895000459E7 /* TheCats.app */;
 			productType = "com.apple.product-type.application";
 		};
+		75995FF3275C44400003B8A3 /* TheCatsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 75995FFC275C44400003B8A3 /* Build configuration list for PBXNativeTarget "TheCatsTests" */;
+			buildPhases = (
+				75995FF0275C44400003B8A3 /* Sources */,
+				75995FF1275C44400003B8A3 /* Frameworks */,
+				75995FF2275C44400003B8A3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				75995FF9275C44400003B8A3 /* PBXTargetDependency */,
+			);
+			name = TheCatsTests;
+			productName = TheCatsTests;
+			productReference = 75995FF4275C44400003B8A3 /* TheCatsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -196,6 +244,10 @@
 				TargetAttributes = {
 					7587067F274BE895000459E7 = {
 						CreatedOnToolsVersion = 13.0;
+					};
+					75995FF3275C44400003B8A3 = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = 7587067F274BE895000459E7;
 					};
 				};
 			};
@@ -213,6 +265,7 @@
 			projectRoot = "";
 			targets = (
 				7587067F274BE895000459E7 /* TheCats */,
+				75995FF3275C44400003B8A3 /* TheCatsTests */,
 			);
 		};
 /* End PBXProject section */
@@ -225,6 +278,13 @@
 				75870690274BE897000459E7 /* LaunchScreen.storyboard in Resources */,
 				7587068D274BE897000459E7 /* Assets.xcassets in Resources */,
 				7587068B274BE895000459E7 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		75995FF2275C44400003B8A3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,7 +351,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		75995FF0275C44400003B8A3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75995FF7275C44400003B8A3 /* TheCatsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		75995FF9275C44400003B8A3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7587067F274BE895000459E7 /* TheCats */;
+			targetProxy = 75995FF8275C44400003B8A3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		75870689274BE895000459E7 /* Main.storyboard */ = {
@@ -491,6 +567,54 @@
 			};
 			name = Release;
 		};
+		75995FFA275C44400003B8A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NKX4Y6CAJV;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.urszulawiertel.TheCatsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TheCats.app/TheCats";
+			};
+			name = Debug;
+		};
+		75995FFB275C44400003B8A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NKX4Y6CAJV;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.urszulawiertel.TheCatsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TheCats.app/TheCats";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -508,6 +632,15 @@
 			buildConfigurations = (
 				75870695274BE897000459E7 /* Debug */,
 				75870696274BE897000459E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		75995FFC275C44400003B8A3 /* Build configuration list for PBXNativeTarget "TheCatsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				75995FFA275C44400003B8A3 /* Debug */,
+				75995FFB275C44400003B8A3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

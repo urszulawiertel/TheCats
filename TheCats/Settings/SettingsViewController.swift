@@ -24,31 +24,6 @@ class SettingsViewController: UIViewController {
     private let defaultsManager: UserDefaultsManaging = UserDefaultsManager()
     private let factsNumber: [Int] = Array(1...10)
 
-    // MARK: - Types
-
-    private enum AnimalType: String, CaseIterable {
-        case cat = "cat"
-        case dog = "dog"
-        case horse = "horse"
-        case snail = "snail"
-        case unspecified = "cat,dog,horse,snail"
-
-        var animalEmoji: String {
-            switch self {
-            case .cat:
-                return "🐈‍⬛"
-            case .dog:
-                return "🐕"
-            case .horse:
-                return "🐎"
-            case .snail:
-                return "🐌"
-            case .unspecified:
-                return "Unspecified"
-            }
-        }
-    }
-
     // MARK: - View Lifecycle
 
     override func viewDidLoad() {
@@ -76,10 +51,7 @@ class SettingsViewController: UIViewController {
         animalTypeTextField.inputView = animalTypePickerView
 
         factsNumberTextField.text = defaultsManager.getFactsNumber()
-        animalTypeTextField.text = defaultsManager.getAnimalType().capitalized
-        if animalTypeTextField.text == "Cat,Dog,Horse,Snail" {
-            animalTypeTextField.text = "Unspecified"
-        }
+        animalTypeTextField.text = (AnimalType(rawValue: defaultsManager.getAnimalType()) ?? .unspecified).displayName
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -115,7 +87,7 @@ extension SettingsViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         case 1:
             return "\(factsNumber[row])"
         case 2:
-            return "\(AnimalType.allCases[row].animalEmoji)"
+            return "\(AnimalType.allCases[row].displayName)"
         default:
             return ""
         }
@@ -127,7 +99,7 @@ extension SettingsViewController: UIPickerViewDataSource, UIPickerViewDelegate {
             factsNumberTextField.text = "\(factsNumber[row])"
             defaultsManager.setFactsNumber(value: factsNumberTextField.text)
         case 2:
-            animalTypeTextField.text = "\(AnimalType.allCases[row])".capitalized
+            animalTypeTextField.text = "\(AnimalType.allCases[row].displayName)"
             defaultsManager.setAnimalType(value: "\(AnimalType.allCases[row].rawValue)")
         default:
             return
