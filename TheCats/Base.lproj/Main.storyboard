@@ -49,14 +49,18 @@
                                             <color key="textColor" systemColor="secondaryLabelColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ViA-kF-pVG">
+                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ViA-kF-pVG">
                                             <rect key="frame" x="317" y="30" width="37" height="31.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="tintColor" systemColor="systemPinkColor"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                             <state key="normal">
                                                 <imageReference key="image" image="heart" catalog="system"/>
                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30" scale="default" weight="medium"/>
                                             </state>
+                                            <state key="selected" image="heart.fill" catalog="system"/>
+                                            <connections>
+                                                <action selector="favoriteButtonTapped:" destination="FQB-wp-wsm" eventType="touchUpInside" id="0e4-UL-e3A"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -84,6 +88,7 @@
                                 <connections>
                                     <outlet property="contentLabel" destination="Gax-kl-Tti" id="roP-pw-onW"/>
                                     <outlet property="dateLabel" destination="LKP-NK-fGp" id="7cI-Rp-aCL"/>
+                                    <outlet property="favoriteButton" destination="ViA-kF-pVG" id="R8n-eT-JbC"/>
                                     <outlet property="prefixLabel" destination="MuB-Fp-38C" id="CrK-cJ-Az0"/>
                                     <outlet property="typeLabel" destination="d96-7s-F8Q" id="6kz-yN-Nig"/>
                                 </connections>
@@ -155,7 +160,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="VeH-zZ-iLz" kind="relationship" relationship="rootViewController" id="4Qn-E2-ofH"/>
+                        <segue destination="VeH-zZ-iLz" kind="relationship" relationship="rootViewController" id="7aI-VO-tR1"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jwY-ON-h04" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -167,7 +172,7 @@
             <objects>
                 <navigationController id="48v-Ab-HTB" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Settings" id="H8H-0I-nKb">
-                        <imageReference key="image" image="ellipsis" catalog="system" symbolScale="large"/>
+                        <imageReference key="image" image="gearshape" catalog="system" symbolScale="large"/>
                         <inset key="largeContentSizeImageInsets" minX="0.0" minY="9" maxX="0.0" maxY="0.0"/>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="O4T-nv-Wd7">
@@ -182,22 +187,87 @@
             </objects>
             <point key="canvasLocation" x="103" y="744"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Favorites Table View Controller-->
         <scene sceneID="W4W-ua-cGY">
             <objects>
-                <tableViewController id="VeH-zZ-iLz" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Le4-9M-Url">
+                <tableViewController id="VeH-zZ-iLz" customClass="FavoritesTableViewController" customModule="TheCats" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="Le4-9M-Url">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="CnD-SK-xqs">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AnimalFactsTableViewCell" rowHeight="180" id="7DP-Cf-bvO" customClass="AnimalFactsTableViewCell" customModule="TheCats" customModuleProvider="target">
+                                <rect key="frame" x="20" y="49.5" width="374" height="180"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CnD-SK-xqs" id="MTI-Hc-NrJ">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7DP-Cf-bvO" id="3cx-3g-if9">
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="180"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bIi-gg-f5v">
+                                            <rect key="frame" x="20" y="81.5" width="334" height="68.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q0T-Iy-FkD">
+                                            <rect key="frame" x="155" y="30" width="64.5" height="31.5"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
+                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5tr-gs-seX">
+                                            <rect key="frame" x="254.5" y="30" width="61.5" height="31.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                            <color key="textColor" systemColor="secondaryLabelColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fPD-pP-r1J">
+                                            <rect key="frame" x="20" y="30" width="33" height="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" systemColor="secondaryLabelColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4pP-0I-Um3">
+                                            <rect key="frame" x="326" y="30" width="28" height="30.5"/>
+                                            <color key="tintColor" systemColor="systemPinkColor"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" image="trash" catalog="system">
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
+                                            </state>
+                                            <state key="selected" image="heart.fill" catalog="system"/>
+                                            <connections>
+                                                <action selector="deleteButtonTapped:" destination="7DP-Cf-bvO" eventType="touchUpInside" id="9xt-7d-pVF"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="4pP-0I-Um3" secondAttribute="trailing" constant="20" id="8w6-d4-yDE"/>
+                                        <constraint firstItem="bIi-gg-f5v" firstAttribute="top" secondItem="Q0T-Iy-FkD" secondAttribute="bottom" constant="20" id="FqY-yG-fdK"/>
+                                        <constraint firstAttribute="bottom" secondItem="bIi-gg-f5v" secondAttribute="bottom" constant="30" id="GGi-2I-3jy"/>
+                                        <constraint firstItem="bIi-gg-f5v" firstAttribute="leading" secondItem="3cx-3g-if9" secondAttribute="leading" constant="20" id="KRn-TZ-6fS"/>
+                                        <constraint firstItem="5tr-gs-seX" firstAttribute="top" secondItem="3cx-3g-if9" secondAttribute="top" constant="30" id="MTj-dA-Z4M"/>
+                                        <constraint firstItem="Q0T-Iy-FkD" firstAttribute="centerX" secondItem="3cx-3g-if9" secondAttribute="centerX" id="O8Q-3t-Cdt"/>
+                                        <constraint firstItem="Q0T-Iy-FkD" firstAttribute="top" secondItem="3cx-3g-if9" secondAttribute="top" constant="30" id="OBP-D8-7MA"/>
+                                        <constraint firstItem="fPD-pP-r1J" firstAttribute="top" secondItem="3cx-3g-if9" secondAttribute="top" constant="30" id="fts-ZT-BQP"/>
+                                        <constraint firstItem="4pP-0I-Um3" firstAttribute="top" secondItem="3cx-3g-if9" secondAttribute="top" constant="30" id="pAZ-cz-JwI"/>
+                                        <constraint firstItem="5tr-gs-seX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Q0T-Iy-FkD" secondAttribute="trailing" constant="8" symbolic="YES" id="qF0-hg-X6i"/>
+                                        <constraint firstItem="4pP-0I-Um3" firstAttribute="leading" secondItem="5tr-gs-seX" secondAttribute="trailing" constant="10" id="qpX-Qa-kMW"/>
+                                        <constraint firstItem="fPD-pP-r1J" firstAttribute="leading" secondItem="3cx-3g-if9" secondAttribute="leading" constant="20" id="tJa-wz-kvo"/>
+                                        <constraint firstItem="Q0T-Iy-FkD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fPD-pP-r1J" secondAttribute="trailing" constant="8" symbolic="YES" id="woj-yQ-4AD"/>
+                                        <constraint firstAttribute="trailing" secondItem="bIi-gg-f5v" secondAttribute="trailing" constant="20" id="x3s-5b-CjP"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="contentLabel" destination="bIi-gg-f5v" id="7bS-0H-bgx"/>
+                                    <outlet property="dateLabel" destination="fPD-pP-r1J" id="Ppm-it-iiU"/>
+                                    <outlet property="deleteButton" destination="4pP-0I-Um3" id="5PP-hU-H2C"/>
+                                    <outlet property="prefixLabel" destination="Q0T-Iy-FkD" id="aeC-K5-sPM"/>
+                                    <outlet property="typeLabel" destination="5tr-gs-seX" id="FiP-yF-iuq"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -271,15 +341,19 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ellipsis" catalog="system" width="128" height="37"/>
+        <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="homekit" catalog="system" width="128" height="106"/>
+        <image name="trash" catalog="system" width="121" height="128"/>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

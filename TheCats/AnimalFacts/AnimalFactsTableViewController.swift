@@ -34,17 +34,40 @@ class AnimalFactsTableViewController: UITableViewController {
         searchController.searchResultsUpdater = self
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        updateFavorites(array: &animalFacts) || updateFavorites(array: &animalFactsFiltered) ? tableView.reloadData() : ()
+    }
+
+    private func updateFavorites(array: inout [AnimalFact]) -> Bool {
+        let persistedFacts = defaultsManager.retrieveFavorites()
+
+        var indexesToRemove = [Int]()
+        for (index, animalFact) in array.enumerated() where animalFact.isFavorited ?? false {
+            if persistedFacts.contains(where: { $0.id == animalFact.id }) {
+
+            } else {
+                indexesToRemove.append(index)
+            }
+        }
+
+        indexesToRemove.forEach { index in
+            array[index].isFavorited = false
+        }
+        return !indexesToRemove.isEmpty
+    }
+
     private func setupRightBarButtonItems() {
         let barButtonMenu = UIMenu(title: "Sort by", options: .displayInline, children: [
             UIAction(title: "Date", image: UIImage(systemName: "calendar.badge.clock"), handler: sortFacts),
-            UIAction(title: "Type", image: UIImage(systemName: "pencil"), handler: sortFacts),
+            UIAction(title: "Type", image: UIImage(systemName: "pawprint"), handler: sortFacts),
             UIAction(title: "Alphabetical", image: UIImage(systemName: "textformat.abc"), handler: sortFacts),
             UIAction(title: "Verified", image: UIImage(systemName: "checkmark.circle"), handler: sortFacts)
         ])
 
-        let downloadBarItem = UIBarButtonItem(title: "Download", style: .plain, target: self, action: #selector(downloadFacts))
-        let filterBarItem = UIBarButtonItem(image: UIImage(systemName: "arrow.up.arrow.down"), menu: barButtonMenu)
-        navigationItem.rightBarButtonItems = [filterBarItem, downloadBarItem]
+        let downloadBarItem = UIBarButtonItem(title: "Get facts", style: .plain, target: self, action: #selector(downloadFacts))
+        let sortBarItem = UIBarButtonItem(image: UIImage(systemName: "arrow.up.arrow.down"), menu: barButtonMenu)
+        navigationItem.rightBarButtonItems = [sortBarItem, downloadBarItem]
     }
 
     private func sortFacts(action: UIAction) {
@@ -73,7 +96,7 @@ class AnimalFactsTableViewController: UITableViewController {
         activityIndicator.startAnimating()
 
         apiController.fetchFacts(forType: AnimalType(rawValue: defaultsManager.getAnimalType()) ?? .unspecified,
-                                 forNumber: Int(defaultsManager.getFactsNumber()) ?? 1) { [weak self] result in
+                                 forNumber: Int(defaultsManager.getFactsNumber()) ?? 5) { [weak self] result in
             guard let self = self else { return }
 
             switch result {
@@ -109,8 +132,38 @@ class AnimalFactsTableViewController: UITableViewController {
         var item: AnimalFact
         if !animalFactsFiltered.isEmpty {
             item = animalFactsFiltered[indexPath.row]
+
+            let tableViewCellViewModel = AnimalFactsTableViewCellViewModel(item: item)
+            cell.viewModel = tableViewCellViewModel
+            cell.viewModel.favoriteButtonClicked = { [weak self] id, isSelected in
+                guard let self = self else { return }
+
+                var localIndex: Int = 0
+                for (index, item) in self.animalFactsFiltered.enumerated() where item.id == id {
+                    localIndex = index
+                }
+                self.animalFactsFiltered[localIndex].isFavorited = isSelected
+
+                localIndex = 0
+                for (index, item) in self.animalFacts.enumerated() where item.id == id {
+                    localIndex = index
+                }
+                self.animalFacts[localIndex].isFavorited = isSelected
+            }
         } else {
             item = animalFacts[indexPath.row]
+
+            let tableViewCellViewModel = AnimalFactsTableViewCellViewModel(item: item)
+            cell.viewModel = tableViewCellViewModel
+            cell.viewModel.favoriteButtonClicked = { [weak self] id, isSelected in
+                guard let self = self else { return }
+
+                var localIndex: Int = 0
+                for (index, item) in self.animalFacts.enumerated() where item.id == id {
+                    localIndex = index
+                }
+                self.animalFacts[localIndex].isFavorited = isSelected
+            }
         }
 
         cell.selectionStyle = .none

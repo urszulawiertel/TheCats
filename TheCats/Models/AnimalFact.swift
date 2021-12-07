@@ -15,6 +15,7 @@ struct AnimalFact: Codable {
     let createdAt: String?
     // It's not returned from the server and it's used to preserve facts order
     var index: Int?
+    var isFavorited: Bool?
 
     enum CodingKeys: String, CodingKey {
         case id = "_id"
@@ -23,6 +24,7 @@ struct AnimalFact: Codable {
         case type
         case createdAt
         case index
+        case isFavorited
     }
 
     init(from decoder: Decoder) throws {
@@ -33,10 +35,28 @@ struct AnimalFact: Codable {
         type = (try? container.decode(AnimalType.self, forKey: .type)) ?? .unspecified
         createdAt = try? container.decode(String.self, forKey: .createdAt)
     }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
+        try container.encode(status, forKey: .status)
+        try container.encode(text, forKey: .text)
+        try container.encode(type, forKey: .type)
+        try container.encode(createdAt, forKey: .createdAt)
+    }
 }
 
 struct Status: Codable {
     let verified: Bool?
+
+    enum CodingKeys: String, CodingKey {
+        case verified
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(verified, forKey: .verified)
+    }
 }
 
 enum AnimalType: String, CaseIterable, Codable {

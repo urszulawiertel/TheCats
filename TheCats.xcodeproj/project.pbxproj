@@ -12,6 +12,7 @@
 		757AAB5E2757DC9200D4E11D /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757AAB5D2757DC9100D4E11D /* UserDefaultsManager.swift */; };
 		757B4644274D9220003F7024 /* AnimalFactsAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757B4643274D9220003F7024 /* AnimalFactsAPIController.swift */; };
 		757C536127514C1C00091A6A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757C536027514C1C00091A6A /* SettingsViewController.swift */; };
+		757E3EE6275D314600103EE0 /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757E3EE5275D314600103EE0 /* FavoritesTableViewController.swift */; };
 		75813839275BB9D70012AC2E /* DateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75813838275BB9D70012AC2E /* DateConverter.swift */; };
 		75870684274BE895000459E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75870683274BE895000459E7 /* AppDelegate.swift */; };
 		75870686274BE895000459E7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75870685274BE895000459E7 /* SceneDelegate.swift */; };
@@ -37,12 +38,13 @@
 /* Begin PBXFileReference section */
 		3970F252351BCD07B108D454 /* Pods-TheCats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheCats.release.xcconfig"; path = "Target Support Files/Pods-TheCats/Pods-TheCats.release.xcconfig"; sourceTree = "<group>"; };
 		756AE37A274EC3D300BF9F34 /* AnimalFactsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalFactsError.swift; sourceTree = "<group>"; };
-		756D1D68275542EB003214DE /* TheCats.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TheCats.entitlements; sourceTree = "<group>"; };
 		75743CF1274D6F1700EC46CE /* AnimalFactsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalFactsTableViewCell.swift; sourceTree = "<group>"; };
 		757AAB5D2757DC9100D4E11D /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		757B4643274D9220003F7024 /* AnimalFactsAPIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalFactsAPIController.swift; sourceTree = "<group>"; };
 		757C536027514C1C00091A6A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		757E3EE5275D314600103EE0 /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
 		75813838275BB9D70012AC2E /* DateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConverter.swift; sourceTree = "<group>"; };
+		75855ED2275EA5690041E5C0 /* TheCats.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TheCats.entitlements; sourceTree = "<group>"; };
 		75870680274BE895000459E7 /* TheCats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheCats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75870683274BE895000459E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75870685274BE895000459E7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +105,14 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		757E3EE4275D311800103EE0 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				757E3EE5275D314600103EE0 /* FavoritesTableViewController.swift */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
 		7585853E275294A700EA4656 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				758706A0274C3F83000459E7 /* AnimalFacts */,
+				757E3EE4275D311800103EE0 /* Favorites */,
 				7585853E275294A700EA4656 /* Settings */,
 				75870698274C2FD4000459E7 /* APIService */,
 				75870697274C0CA8000459E7 /* Models */,
@@ -169,7 +180,7 @@
 		7587069F274C3C81000459E7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				756D1D68275542EB003214DE /* TheCats.entitlements */,
+				75855ED2275EA5690041E5C0 /* TheCats.entitlements */,
 				7587068C274BE897000459E7 /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -344,6 +355,7 @@
 				757C536127514C1C00091A6A /* SettingsViewController.swift in Sources */,
 				75813839275BB9D70012AC2E /* DateConverter.swift in Sources */,
 				757B4644274D9220003F7024 /* AnimalFactsAPIController.swift in Sources */,
+				757E3EE6275D314600103EE0 /* FavoritesTableViewController.swift in Sources */,
 				757AAB5E2757DC9200D4E11D /* UserDefaultsManager.swift in Sources */,
 				75743CF2274D6F1700EC46CE /* AnimalFactsTableViewCell.swift in Sources */,
 				75870684274BE895000459E7 /* AppDelegate.swift in Sources */,
@@ -511,7 +523,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = TheCats/TheCats.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = NKX4Y6CAJV;
@@ -542,7 +554,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = TheCats/TheCats.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = NKX4Y6CAJV;

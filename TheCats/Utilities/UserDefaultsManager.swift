@@ -8,11 +8,13 @@
 import Foundation
 
 protocol UserDefaultsManaging {
-
     func setFactsNumber(value: String?)
     func setAnimalType(value: String?)
     func getFactsNumber() -> String
     func getAnimalType() -> String
+    func saveFavorite(item: AnimalFact)
+    func retrieveFavorites() -> [AnimalFact]
+    func deleteFavorites(itemsIds: [String])
 }
 
 struct UserDefaultsManager: UserDefaultsManaging {
@@ -26,14 +28,15 @@ struct UserDefaultsManager: UserDefaultsManaging {
     private enum Keys: String {
         case factsKey = "factsNumber"
         case animalKey = "animalType"
+        case favoritesKey = "favorites"
     }
 
     func setFactsNumber(value: String?) {
-        return userDefaults.set(value, forKey: Keys.factsKey.rawValue)
+        userDefaults.set(value, forKey: Keys.factsKey.rawValue)
     }
 
     func setAnimalType(value: String?) {
-        return userDefaults.set(value, forKey: Keys.animalKey.rawValue)
+        userDefaults.set(value, forKey: Keys.animalKey.rawValue)
     }
 
     func getFactsNumber() -> String {
@@ -44,4 +47,31 @@ struct UserDefaultsManager: UserDefaultsManaging {
         return userDefaults.string(forKey: Keys.animalKey.rawValue) ?? ""
     }
 
+    func saveFavorite(item: AnimalFact) {
+        var items = retrieveFavorites()
+        items.append(item)
+        guard let encodedData = try? JSONEncoder().encode(items) else { return }
+        userDefaults.set(encodedData, forKey: Keys.favoritesKey.rawValue)
+    }
+
+    func deleteFavorites(itemsIds: [String]) {
+        var items = retrieveFavorites()
+
+        for itemId in itemsIds {
+            var localIndex: Int = 0
+            for (index, item) in items.enumerated() where item.id == itemId {
+                localIndex = index
+                items.remove(at: localIndex)
+            }
+        }
+
+        guard let encodedData = try? JSONEncoder().encode(items) else { return }
+        userDefaults.removeObject(forKey: Keys.favoritesKey.rawValue)
+        userDefaults.set(encodedData, forKey: Keys.favoritesKey.rawValue)
+    }
+
+    func retrieveFavorites() -> [AnimalFact] {
+        guard let data = userDefaults.data(forKey: Keys.favoritesKey.rawValue), let decodedData = try? JSONDecoder().decode([AnimalFact].self, from: data) else { return [] }
+        return decodedData
+    }
 }
