@@ -29,11 +29,25 @@ extension AnimalType {
 
 struct AnimalFactsAPIController: AnimalFactsAPIControlling {
 
-    private let baseUrl = "https://cat-fact.herokuapp.com/"
+    private struct Constants {
+        static var components: URLComponents {
+            var components = URLComponents()
+            components.scheme = "https"
+            components.host = "cat-fact.herokuapp.com"
+            return components
+        }
+    }
 
     func fetchFacts(forType type: AnimalType, forNumber number: Int, completionHandler: @escaping (Result<[AnimalFact], AnimalFactsError>) -> Void) {
 
-        guard let url = URL(string: "\(baseUrl)facts/random?animal_type=\(type.getQueryValue())&amount=\(number)") else { return }
+        var components = Constants.components
+        components.path = "/facts/random"
+        components.queryItems = [
+            URLQueryItem(name: "animal_type", value: type.getQueryValue()),
+            URLQueryItem(name: "amount", value: "\(number)")
+        ]
+
+        guard let url = components.url else { return }
 
         fetchData(withUrl: url, forNumber: number, completionHandler: completionHandler)
     }
