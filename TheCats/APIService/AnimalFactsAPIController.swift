@@ -38,6 +38,13 @@ struct AnimalFactsAPIController: AnimalFactsAPIControlling {
         }
     }
 
+    private func decode<T: Decodable>(_ model: T.Type, from data: Data) throws -> T {
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .formatted(DateFormatter.defaultDateFormatter)
+        let decodedData = try decoder.decode(model.self, from: data)
+        return decodedData
+    }
+
     func fetchFacts(forType type: AnimalType, forNumber number: Int, completionHandler: @escaping (Result<[AnimalFact], AnimalFactsError>) -> Void) {
 
         var components = Constants.components
@@ -70,9 +77,9 @@ struct AnimalFactsAPIController: AnimalFactsAPIControlling {
             do {
                 let decoded: [T]
                 if factsNumber == 1 {
-                    decoded = try [JSONDecoder().decode(T.self, from: data)]
+                    decoded = try [decode(T.self, from: data)]
                 } else {
-                    decoded = try JSONDecoder().decode([T].self, from: data)
+                    decoded = try decode([T].self, from: data)
                 }
                 completionHandler(.success(decoded))
 

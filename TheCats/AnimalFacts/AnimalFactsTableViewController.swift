@@ -74,9 +74,7 @@ class AnimalFactsTableViewController: UITableViewController {
         switch action.title {
         case "Date":
             let now = Date()
-            animalFactsFiltered = animalFacts.sorted {
-                dateConverter.getDate($0.createdAt ?? "") ?? now > dateConverter.getDate($1.createdAt ?? "") ?? now
-            }
+            animalFactsFiltered = animalFacts.sorted { $0.createdAt ?? now > $1.createdAt ?? now }
         case "Type":
             animalFactsFiltered = animalFacts.sorted { $0.type.rawValue < $1.type.rawValue }
         case "Alphabetical":

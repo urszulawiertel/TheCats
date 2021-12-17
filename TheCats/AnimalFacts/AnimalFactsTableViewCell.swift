@@ -34,7 +34,7 @@ class AnimalFactsTableViewCell: UITableViewCell {
         prefixLabel.text = "Fact #\(viewModel.item?.index ?? 1):"
         contentLabel.text = viewModel.item?.text
         typeLabel.text = viewModel.item?.type.animalEmoji
-        dateLabel.text = "Created at:\n\(dateConverter.formatDate(viewModel.item?.createdAt ?? "") ?? "")"
+        dateLabel.text = "Created at:\n\(dateConverter.formatDate(viewModel.item?.createdAt ?? Date() ) ?? "" )"
         favoriteButton?.isSelected = viewModel.item?.isFavorited ?? false
     }
 

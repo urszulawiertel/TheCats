@@ -12,7 +12,7 @@ struct AnimalFact: Codable {
     let status: Status
     let text: String
     let type: AnimalType
-    let createdAt: String?
+    let createdAt: Date?
     // It's not returned from the server and it's used to preserve facts order
     var index: Int?
     var isFavorited: Bool?
@@ -33,7 +33,7 @@ struct AnimalFact: Codable {
         status = try container.decode(Status.self, forKey: .status)
         text = try container.decode(String.self, forKey: .text)
         type = (try? container.decode(AnimalType.self, forKey: .type)) ?? .unspecified
-        createdAt = try? container.decode(String.self, forKey: .createdAt)
+        createdAt = try? container.decode(Date.self, forKey: .createdAt)
     }
 
     func encode(to encoder: Encoder) throws {

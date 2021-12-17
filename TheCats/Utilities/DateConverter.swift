@@ -8,8 +8,7 @@
 import Foundation
 
 protocol DateConverting {
-    func formatDate(_ string: String) -> String?
-    func getDate(_ string: String) -> Date?
+    func formatDate(_ date: Date) -> String?
 }
 
 struct DateConverter: DateConverting {
@@ -23,19 +22,10 @@ struct DateConverter: DateConverting {
     }
 
     /// Converts a date from the API using DateFormatter().
-    /// - Parameter string: Date to format
+    /// - Parameter date: Date to format
     /// - Returns: Returns a string converted to a given date format.
-    func formatDate(_ string: String) -> String? {
-        if let date = inputDateFormatter.date(from: string) {
-            return outputDateFormatter.string(from: date)
-        } else {
-            return nil
-        }
-    }
-
-    /// Converts a string to a Date object
-    func getDate(_ string: String) -> Date? {
-        return inputDateFormatter.date(from: string)
+    func formatDate(_ date: Date) -> String? {
+        outputDateFormatter.string(from: date)
     }
 }
 
