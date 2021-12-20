@@ -72,6 +72,8 @@ class FavoritesTableViewController: UITableViewController {
         emptyFavoritesMessageLabel.translatesAutoresizingMaskIntoConstraints = false
         emptyFavoritesMessageLabel.isHidden = true
         emptyFavoritesMessageLabel.text = "No favorites saved."
+        emptyFavoritesMessageLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        emptyFavoritesMessageLabel.adjustsFontForContentSizeCategory = true
         view.addSubview(emptyFavoritesMessageLabel)
 
         NSLayoutConstraint.activate([
